@@ -1,0 +1,261 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #ECEFF1;
+    /* background: linear-gradient(180deg, rgb(45, 49, 58) 12%,  rgb(24, 24, 26) 74%); */
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.login-box {
+    width: 320px;
+    height: auto;
+    background: #000;
+    border-radius: 3px;
+    color: darkslategray;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -20%);
+    box-sizing: border-box;
+    padding: 100px 30px 20px 30px;
+    background:  white;
+    /* border: 1px solid lightgray; */
+    /* box-shadow: 2px 1px 3px 1px #ddd; */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.login-box .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.login-box h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login-box label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.login-box input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-box input[type="text"], .login-box input[type="password"], .login-box input[type="number"],
+.login-box input[type="date"], .login-box input[type="time"], select {
+    border: none;
+    border-bottom: 1px solid darkslategrey;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: darkslategrey;
+    font-size: 16px;
+}
+
+.login-box input:read-only {
+    background: #ECEFF1;
+}
+
+.login-box input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgba(37,37,143,1);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.login-box input[type="submit"]:hover {
+    cursor: pointer;
+    background: rgba(0,12,70,1);
+    color: white;
+}
+
+.login-box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.login-box a:hover {
+    color: #fff;
+}
+
+.login-box select{
+    display: block;
+    margin-bottom: 30px;
+}
+
+.menu h2 {
+    margin: 0;
+    /* padding: 0 0 20px; */
+    text-align: center;
+    font-size: 20px;
+}
+
+.menu {
+    display: flex;
+        justify-content: left;
+    height: auto;
+    border-radius: 3px;
+    top: -30px;
+    left: 56px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 10px 30px;
+    cursor: pointer;
+    background: white;
+    color: darkslategray;
+    /* border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+    box-shadow: 2px 1px 3px 1px #ddd;      */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.ticket-gallery {
+    min-width: 320px;
+    max-width: 640px;
+    height: auto;
+    border-radius: 3px;
+    color: darkslategray;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 10px 30px;
+    background: white;
+    /* border: 1px solid lightgray;
+    box-shadow: 2px 1px 3px 1px #ddd; */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.ticket-gallery-container{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* overflow-x: auto; */
+}
+
+.ticket-button{
+    /* width: 20%;
+    height: 20%; */
+    margin: 10px 10px;
+    display: inline-block;
+}
+
+.ticket-button-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+    cursor: pointer;
+    /* border: 1px solid #ECEFF1;
+    box-shadow: 3px 2px 2px 1px #ddd; */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+    /* position: absolute; */
+    /* top: -50px; */
+    /* left: calc(50% - 50px); */
+}
+
+.ticket-gallery-title{
+    text-align: center;
+    padding-top: 0px;
+}
+
+.ticket-form-container {
+    display: block;
+    /* margin-top: 40px; */
+    min-width: 320px;
+    max-width: 640px;
+    /* height: 480px; */
+    border-radius: 3px;
+    color: darkslategray;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 10px 30px;
+    background: white;
+    /* border: 1px solid lightgray;
+    box-shadow: 2px 1px 3px 1px #ddd; */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.ticket-form-container input, label{
+    /* width: 100%;
+    margin: 10px 0px; */
+    font-size: 20px;
+}
+
+.ticket-form{
+    margin: 100px 0 0 0;
+    padding: 0 10px;
+}
+
+.form-item{
+    width: auto;
+    margin: 30px 0;
+    background: black;
+}
+
+    .form-item label{
+        height: auto;
+        display: inline-block;
+    }
+
+    .form-item input, select{
+        width: 260px;
+        float: right;
+        font-size: 20px;
+    }
+    /* .form-item input[type="submit"]{
+        position: absolute;
+        height: 70px;
+        width: 200px;
+    } */
+    .form-item input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 40px;
+        width: 100%;
+        margin: 20px 0;
+        background: rgba(37,37,143,1);
+        color: #fff;
+        font-size: 20px;
+        border-radius: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    .form-item input[type="submit"]:hover {
+        cursor: pointer;
+        background: rgba(0,12,70,1);
+        color: white;
+    }
+
+.form-ticket-icon{
+    height: 120px;
+    position: absolute;
+    border-radius: 100px;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

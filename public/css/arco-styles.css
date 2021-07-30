@@ -1,0 +1,94 @@
+.lucida-sans, *{
+    font-family: 'Lucida Sans';
+    font-weight: bold;
+    font-size: 8px;
+    /* line-height: 8px; */
+}
+.lucida-console{
+    font-family: 'Lucida Console';
+}
+/* 
+td,
+th,
+tr,
+table {
+    border-top: 1px solid black;
+    border-collapse: collapse;
+} */
+
+.ticket {
+    position: absolute;
+    left:0;
+    top:45px;
+    /* padding: 45px 0 0 0; */
+    width: 155px;
+    max-width: 155px;
+}
+
+.centrar-img{
+    display: block;
+    margin: 0 0 10px 35px;
+}
+.align-top{
+    vertical-align: top;
+}
+
+.borderless {
+    border: none;
+    padding: 0;
+}
+
+.justify-left{
+    text-align: left;
+}
+
+.justify-left-inblock{
+    text-align: left;
+    display: inline-block;
+}
+.justify-right{
+    text-align: right;
+}
+
+.justify{
+    text-align: justify;
+    display: inline-block;
+}
+
+.layout{
+    table-layout: fixed;
+}
+
+.qr{
+    padding-left: 5px;
+    height: 65px;
+}
+
+.oculto-browser {
+    display: none;
+}
+
+#table_precios,
+#table_total{
+    /* border-spacing: 0; */
+    
+    width: 240px;
+    text-align: left;
+}
+
+@media print{
+    .oculto-impresion {
+        display: none !important;
+    }
+    .oculto-browser {
+        display: block;
+    }
+    @page {
+        margin: 0;
+    }
+    .container {
+        margin: .1cm;
+    }
+    
+}
+

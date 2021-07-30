@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tikt</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/8.8.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.8.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.8.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/8.8.0/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/8.8.0/firebase-functions.js"></script>
+    <script defer src="/__/firebase/8.8.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/8.8.0/firebase-storage.js"></script>
+    <script defer src="/__/firebase/8.8.0/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/8.8.0/firebase-remote-config.js"></script>
+    <script defer src="/__/firebase/8.8.0/firebase-performance.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <link rel="stylesheet" href="css/master.css">
+
+  </head>
+  <body>
+      
+      <div class="ticket-gallery">
+        <div id="menu" class="menu" onclick="location.href='index.html';">
+          <div><h2>Atrás</h2></div>
+        </div>
+        <h1 class="ticket-gallery-title">Elige un ticket</h1>
+        <div class="ticket-gallery-container">
+          <div onclick="location.href='ticket-form.html';" class="ticket-button">
+            <img src="img/button-gallery/arco.png" class="ticket-button-img" alt="Avatar Image">
+          </div>
+          <div class="ticket-button">
+            <img src="img/button-gallery/oxxo.png" class="ticket-button-img" alt="Avatar Image">
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

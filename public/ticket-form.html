@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/master.css">
+    
+</head>
+<body>
+    <div class="login-box">
+        <form action="ticket-arco-print.html">
+                <img src="img/button-gallery/arco.png" class="form-ticket-icon" alt="Avatar Image">
+            
+                    <label for="estaciones">ESTACION</label>
+                    <select name="estaciones" id="estaciones">
+                        <option value="EST 1739 BELLAS ARTES GASOLINERA">EST 1739 BELLAS ARTES GASOLINERA</option>
+                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
+                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
+                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
+                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
+                    </select>
+            
+                    <label for="rfc">RFC</label>
+                    <input type="text" name="rfc" id="rfc" value="RFC" readonly>
+            
+                    <label for="fecha" id="fecha">FECHA</label>
+                    <input type="date" name="fecha">
+            
+                    <label for="hora">HORA</label>
+                    <input type="time" name="hora">
+                        
+                    <label for="producto">PRODUCTO</label>
+                    <input type="text" name="diesel" id="diesel" value="DIESEL" readonly>
+            
+                    <label for="cantidad">CANTIDAD EN LITROS</label>
+                    <input type="number" name="cantidad" id="cantidad" step="0.001" min="0" max="10000" placeholder="$">
+            
+                    <label for="precio">PRECIO x LITRO</label>
+                    <input type="number" name="precio" id="precio" step="0.01" min="0" max="10000" placeholder="$">
+                
+                    <label for="total">TOTAL</label>
+                    <input type="number" name="total" id="total" value="1" readonly>
+                    
+                    <input type="submit" value="IMPRIMIR">
+
+        </form>
+        
+    </div>
+    <!-- <div class="ticket-form-container">
+        <form action="">
+            <div>
+                <img src="img/button-gallery/arco.png" class="form-ticket-icon" alt="Avatar Image">
+            </div>
+            <div class="ticket-form">
+                <div class="form-item">
+                    <label for="estaciones">ESTACION</label>
+                    <select name="estaciones" id="estaciones">
+                        <option value="EST 1739 BELLAS ARTES GASOLINERA">EST 1739 BELLAS ARTES GASOLINERA</option>
+                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
+                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
+                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
+                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="rfc">RFC</label>
+                    <input type="text" name="rfc" id="rfc" placeholder="RFC" disabled>
+                </div>
+
+                <div class="form-item">
+                    <label for="fecha">FECHA</label>
+                    <input type="date">
+                </div>
+
+                <div class="form-item">
+                    <label for="hora">HORA</label>
+                    <input type="time" value="">
+                </div>
+
+                <div class="form-item">
+                    <label for="producto">PRODUCTO</label>
+                    <input type="text" name="diesel" id="diesel" placeholder="DIESEL" disabled>
+                </div>
+
+                <div class="form-item">
+                    <label for="cantidad">CANT.</label>
+                    <input type="number" name="cantidad" id="cantidad" value="1">
+                    <label for="cantidad">LTS</label>
+                </div>
+
+                <div class="form-item">
+                    <label for="precio">PRECIO</label>
+                    <input type="number" name="precio" id="precio" value="1">
+                    <label for="precio">LTS</label>
+                </div>
+
+                <div class="form-item">
+                    <label for="total">TOTAL</label>
+                    <input type="number" name="total" id="total" value="1" disabled>
+                </div>
+
+                <div class="form-item">
+                    <input type="submit" value="IMPRIMIR">
+                </div>
+            </div>
+            
+        </form>
+        
+    </div> -->
+
+    <!-- scripts -->
+    <script src="js/ticket-form.js"></script>
+</body>
+</html>
