@@ -6,30 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/arco-styles.css">
     
 </head>
-<body>
-    <div class="login-box">
-        <form action="ticket-arco-print.html">
+<body class="body" onload="init();">
+    <div class="login-box oculto-impresion">
+        <!-- <form action="ticket-arco-print.html"> -->
+            <form onsubmit="return imprimir(event)">
                 <img src="img/button-gallery/arco.png" class="form-ticket-icon" alt="Avatar Image">
             
                     <label for="estaciones">ESTACION</label>
                     <select name="estaciones" id="estaciones">
-                        <option value="EST 1739 BELLAS ARTES GASOLINERA">EST 1739 BELLAS ARTES GASOLINERA</option>
-                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
-                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
-                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
-                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
+                        <option value="0">EST 1790 - BELLAS ARTES GASOLINERA SA DE CV</option>
+                        <option value="1">EST 3719 - CORPORATIVO ENERVISION SAPI DE CV</option>
                     </select>
             
                     <label for="rfc">RFC</label>
                     <input type="text" name="rfc" id="rfc" value="RFC" readonly>
             
-                    <label for="fecha" id="fecha">FECHA</label>
-                    <input type="date" name="fecha">
+                    <label for="fecha">FECHA</label>
+                    <input type="date" name="fecha" id="fecha">
             
                     <label for="hora">HORA</label>
-                    <input type="time" name="hora">
+                    <input type="time" name="hora" id="hora">
                         
                     <label for="producto">PRODUCTO</label>
                     <input type="text" name="diesel" id="diesel" value="DIESEL" readonly>
@@ -43,74 +42,103 @@
                     <label for="total">TOTAL</label>
                     <input type="number" name="total" id="total" value="1" readonly>
                     
-                    <input type="submit" value="IMPRIMIR">
+                    <input type="submit" (click)="imprimir()" value="IMPRIMIR">
+                    
 
         </form>
-        
     </div>
-    <!-- <div class="ticket-form-container">
-        <form action="">
-            <div>
-                <img src="img/button-gallery/arco.png" class="form-ticket-icon" alt="Avatar Image">
-            </div>
-            <div class="ticket-form">
-                <div class="form-item">
-                    <label for="estaciones">ESTACION</label>
-                    <select name="estaciones" id="estaciones">
-                        <option value="EST 1739 BELLAS ARTES GASOLINERA">EST 1739 BELLAS ARTES GASOLINERA</option>
-                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
-                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
-                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
-                        <option value="EST 3719 CORPORATIVO ENERVISION">EST 3719 CORPORATIVO ENERVISION</option>
-                    </select>
-                </div>
-                <div class="form-item">
-                    <label for="rfc">RFC</label>
-                    <input type="text" name="rfc" id="rfc" placeholder="RFC" disabled>
-                </div>
 
-                <div class="form-item">
-                    <label for="fecha">FECHA</label>
-                    <input type="date">
-                </div>
 
-                <div class="form-item">
-                    <label for="hora">HORA</label>
-                    <input type="time" value="">
-                </div>
+    <!-- template del ticket a imprimir -->
 
-                <div class="form-item">
-                    <label for="producto">PRODUCTO</label>
-                    <input type="text" name="diesel" id="diesel" placeholder="DIESEL" disabled>
-                </div>
 
-                <div class="form-item">
-                    <label for="cantidad">CANT.</label>
-                    <input type="number" name="cantidad" id="cantidad" value="1">
-                    <label for="cantidad">LTS</label>
-                </div>
+    <div class="oculto-browser">
+        <div class="ticket container">
+            <img
+                src="img/tickets/arco/arco.png"
+                alt="Logotipo"
+                class="centrar-img"
+                height="39px">
+            <!-- <p class="lucida-sans"></p> -->
+            <table id="table_precios" class="borderless lucida-sans" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td id="ticket_estacion" colspan="2">EST 3719 - CORPORATIVO ENERVISION SAPI DE CV</td>
+                    </tr>
+                    <tr>
+                        <td id="ticket_rfc">RFC CEN171221EEO</td>
+                    </tr>
+                    <tr>
+                        <td id="ticket_direccion_1" colspan="2">CARR. A LA COLORADA KM. 3.5 ESQ. PLANETARIO S/N</td>
+                    </tr>
+                    <tr>
+                        <td id="ticket_direccion_2" colspan="2">CARR. A LA COLORADA KM. 3.5 ESQ. PLANETARIO S/N</td>
+                    </tr>
+                    <tr>
+                        <td style="height: 10px;"></td>
+                    </tr>
+                    <tr>
+                        <td>BOMBA: 7</td>
+                        <!-- <td>NUM VENTA: 861464</td> -->
+                        <td id="ticket_num_venta">NUM VENTA: 861464</td>
+                    </tr>
+                    <tr>
+                        <td id="ticket_fecha_hora">FECHA: 18/07/21 09:51</td>
+                    </tr>
+                    <tr>
+                        <td>TIPO OPER: EFECTIVO</td>
+                    </tr>
+                    <tr>
+                        <td style="height: 10px;"></td>
+                    </tr>
 
-                <div class="form-item">
-                    <label for="precio">PRECIO</label>
-                    <input type="number" name="precio" id="precio" value="1">
-                    <label for="precio">LTS</label>
-                </div>
-
-                <div class="form-item">
-                    <label for="total">TOTAL</label>
-                    <input type="number" name="total" id="total" value="1" disabled>
-                </div>
-
-                <div class="form-item">
-                    <input type="submit" value="IMPRIMIR">
-                </div>
-            </div>
-            
-        </form>
-        
-    </div> -->
-
-    <!-- scripts -->
+                </table>
+            <table id="table_precios" class="borderless lucida-sans" cellspacing="0" cellpadding="0">
+                <tr class="justify-right">
+                    <td class="justify-left" style="width: 40%;">PRODUCTO</td>
+                    <td>CANT/LTS</td>
+                    <td>PRECIO</td>
+                    <td>IMPORTE</td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;">DIESEL</td>
+                </tr>
+                <tr style="text-align: right;">
+                    <td style="width: 40%;"></td>
+                    <td id="ticket_cantidad">73.374</td>
+                    <td id="ticket_precio">22.98</td>
+                    <td id="ticket_importe">1686.13</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"></td>
+                </tr>
+            </table>
+            <table id="table_total" class="borderless lucida-sans" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td style="width: 60%;">TOTAL....:</td>
+                    <td></td>
+                    <td id="ticket_total">1,686.13 MXN</td>
+                    <td></td>
+                </tr>
+            </table>
+            <table id="mensaje_qr" class="borderless layout lucida-sans">
+                <tr class="borderless">
+                    <td style="width: 80%;border: 1px solid firebrick" class="align-top borderless">
+                        <p id="ticket_precio_con_letra" class="justify-left">SON: UN MIL SEISCIENTOS OCHENTA <br>Y SEIS PESOS CON 13/100 M.N.</p>
+                        <p class="lucida-console justify letter-spacing">
+                            Estimado Cliente: Le recordamos que podrá emitir el CFDI durante los 7 días siguientes al que se haya realizado la compra. De acuerdo con las disposiciones fiscales vigentes. Si el CFDI se solicita en un periodo distinto éste no podra ser emitido. Para mayor información puede comunicarse al 6624333543 o al <span class="justify-left-inblock">correo electrónico:</span> arcopindustrial@enervision.com.mx.<br><br>
+                            Quejas y sugerencias:<br>
+                            atencionaclientes@profuels.mx
+                        </p>
+                    </td>
+                    <td style="border: 1px solid forestgreen" id="qr" class="qr align-top borderless">
+                        <br>
+                        <img class="qr" src="img/tickets/arco/qr.png" alt="">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
     <script src="js/ticket-form.js"></script>
+    <script src="js/numeroALetras.js"></script>
 </body>
 </html>
