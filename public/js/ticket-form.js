@@ -26,21 +26,15 @@ const direccion_2 = [
 ];
 
 function init() {
-    put_rfc();
     
-    // var _fecha = new Date();
-    // var _fecha_offset = _fecha.getTimezoneOffset() * 60000;
-    // var _fecha_correcta = new Date(_fecha.getTime() + _fecha_offset);
-
-    // document.getElementById('fecha').value =
-    //         (_fecha_correcta.getUTCFullYear()).toString() + '-' +
-    //         (_fecha_correcta.getUTCMonth()).toString() + '-' +
-    //         (_fecha_correcta.getUTCDate()).toString() ;
-            
+    put_rfc();            
 
 }
 
 function fn_total(){
+    
+    if (document.getElementById('cantidad').value == '' || document.getElementById('precio').value == '')
+        return;
     
     var cantidad = document.getElementById('cantidad').value;
     var precio = document.getElementById('precio').value;
@@ -54,8 +48,31 @@ function put_rfc(){
     document.getElementById('rfc').value = rfc[select_estaciones.value];
 }
 
+function validaciones(){
+
+    var message_alert = '';
+    if (document.getElementById('fecha').value == "")
+        message_alert = 'Por favor selecciona una fecha';
+    else if (document.getElementById('hora').value == "")
+        message_alert = 'Por favor selecciona una hora';
+    else if (document.getElementById('cantidad').value == "")
+        message_alert = 'Por favor selecciona una cantidad';
+    else if (document.getElementById('precio').value == "")
+        message_alert = 'Por favor selecciona un precio x litro';
+
+    if (message_alert == '')
+        return true;
+
+    alert(message_alert,'asdad');
+    return false;
+}
+
 function imprimir(e){
+
     e.preventDefault();
+
+    if (!validaciones())
+        return;
 
     var fecha = new Date(document.getElementById('fecha').value);
     var fecha_offset = fecha.getTimezoneOffset() * 60000;

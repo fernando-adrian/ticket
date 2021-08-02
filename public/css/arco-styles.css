@@ -1,3 +1,4 @@
+
 .lucida-sans{
     font-family: 'Lucida Sans';
     /* font-weight: bold; */
@@ -9,14 +10,6 @@
     /* font-weight: bold; */
     font-size: 8px;
 }
-/* 
-td,
-th,
-tr,
-table {
-    border-top: 1px solid black;
-    border-collapse: collapse;
-} */
 
 .ticket {
     position: absolute;
@@ -87,11 +80,17 @@ table {
 }
 
 @media print{
+    
+    html, body {
+        height: 99%;    
+    }
+
     .oculto-impresion {
         display: none !important;
     }
     .oculto-browser {
         display: block;
+        /* page-break-after: auto; */
     }
     @page {
         margin: 0;
