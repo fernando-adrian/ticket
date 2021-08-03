@@ -69,6 +69,7 @@
     background: #ECEFF1;
 }
 
+.login-box input[type="button"],
 .login-box input[type="submit"] {
     border: none;
     outline: none;
@@ -80,6 +81,7 @@
     margin-top: 50px;
 }
 
+.login-box input[type="button"]:hover,
 .login-box input[type="submit"]:hover {
     cursor: pointer;
     background: rgba(0,12,70,1);

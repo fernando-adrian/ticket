@@ -7,9 +7,9 @@
     <title>Tikt</title>
 
     <!-- update the version number as needed -->
-    <script defer src="/__/firebase/8.8.0/firebase-app.js"></script>
+    <!-- <script defer src="/__/firebase/8.8.0/firebase-app.js"></script> -->
     <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/8.8.0/firebase-auth.js"></script>
+    <!-- <script defer src="/__/firebase/8.8.0/firebase-auth.js"></script>
     <script defer src="/__/firebase/8.8.0/firebase-database.js"></script>
     <script defer src="/__/firebase/8.8.0/firebase-firestore.js"></script>
     <script defer src="/__/firebase/8.8.0/firebase-functions.js"></script>
@@ -17,12 +17,18 @@
     <script defer src="/__/firebase/8.8.0/firebase-storage.js"></script>
     <script defer src="/__/firebase/8.8.0/firebase-analytics.js"></script>
     <script defer src="/__/firebase/8.8.0/firebase-remote-config.js"></script>
-    <script defer src="/__/firebase/8.8.0/firebase-performance.js"></script>
+    <script defer src="/__/firebase/8.8.0/firebase-performance.js"></script> -->
     <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
     -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <!-- <script defer src="/__/firebase/init.js?useEmulator=true"></script> -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    
+    
     <link rel="stylesheet" href="css/master.css">
 
   </head>
@@ -30,16 +36,17 @@
     <div class="login-box">
       <img src="img/logo.png" class="avatar" alt="Avatar Image">
       <h1>Autenticación</h1>
-      <form action="ticket-gallery.html">
+      <form action="ticket-gallery.html">  
         <!-- USERNAME INPUT -->
         <label for="username">Usuario</label>
         <input type="text" placeholder="Usuario">
         <!-- PASSWORD INPUT -->
         <label for="password">Contraseña</label>
         <input type="password" placeholder="Contraseña">
+        <!-- <input id="login" type="button" value="Log In"> -->
         <input type="submit" value="Log In">
-        
       </form>
     </div>    
+    <!-- <script src="js/auth.js"></script> -->
   </body>
 </html>
