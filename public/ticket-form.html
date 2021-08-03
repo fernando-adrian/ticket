@@ -15,7 +15,7 @@
             <form onsubmit="return imprimir(event)">
                 <img src="img/button-gallery/arco.png" class="form-ticket-icon" alt="Avatar Image">
             
-                    <label for="estaciones">ESTACION</label>
+                    <label for="estaciones">ESTACIONES</label>
                     <select name="estaciones" id="estaciones">
                         <option value="0">EST 1790 - BELLAS ARTES GASOLINERA SA DE CV</option>
                         <option value="1">EST 3719 - CORPORATIVO ENERVISION SAPI DE CV</option>
@@ -53,14 +53,14 @@
 
 
     <div class="oculto-browser">
-        <div class="ticket container">
+        <!-- tamaño de importe de 87 a -->
+        <div class="ticket container" style="width: 87%;">
             <img
                 src="img/tickets/arco/arco.png"
                 alt="Logotipo"
                 class="centrar-img"
                 height="39px">
-            <!-- <p class="lucida-sans"></p> -->
-            <table id="table_precios" class="borderless lucida-sans" cellspacing="0" cellpadding="0">
+            <table id="table_precios" class="borderless lucida-console" cellspacing="0" cellpadding="0">
                     <tr>
                         <td id="ticket_estacion" colspan="2">EST 3719 - CORPORATIVO ENERVISION SAPI DE CV</td>
                     </tr>
@@ -77,8 +77,7 @@
                         <td style="height: 10px;"></td>
                     </tr>
                     <tr>
-                        <td>BOMBA: 7</td>
-                        <!-- <td>NUM VENTA: 861464</td> -->
+                        <td style="width: 50%;">BOMBA: 7</td>
                         <td id="ticket_num_venta">NUM VENTA: 861464</td>
                     </tr>
                     <tr>
@@ -91,10 +90,10 @@
                         <td style="height: 10px;"></td>
                     </tr>
 
-                </table>
-            <table id="table_precios" class="borderless lucida-sans" cellspacing="0" cellpadding="0">
+            </table>
+            <table id="table_precios" class="borderless lucida-console" style="width: 100%;" cellspacing="0" cellpadding="0">
                 <tr class="justify-right">
-                    <td class="justify-left" style="width: 40%;">PRODUCTO</td>
+                    <td class="justify-left">PRODUCTO</td>
                     <td>CANT/LTS</td>
                     <td>PRECIO</td>
                     <td>IMPORTE</td>
@@ -103,7 +102,7 @@
                     <td style="height: 20px;">DIESEL</td>
                 </tr>
                 <tr style="text-align: right;">
-                    <td style="width: 40%;"></td>
+                    <td style="width: 35%;"></td>
                     <td id="ticket_cantidad">73.374</td>
                     <td id="ticket_precio">22.98</td>
                     <td id="ticket_importe">1686.13</td>
@@ -112,17 +111,20 @@
                     <td style="padding: 8px;"></td>
                 </tr>
             </table>
-            <table id="table_total" class="borderless lucida-sans" cellspacing="0" cellpadding="0">
+            <table id="table_total" class="borderless lucida-console" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td style="width: 60%;">TOTAL....:</td>
+                    <td style="width: 65%;">TOTAL....:</td>
                     <td></td>
                     <td id="ticket_total">1,686.13 MXN</td>
                     <td></td>
                 </tr>
             </table>
-            <table id="mensaje_qr" class="borderless layout lucida-sans">
+            <!-- cellpadding y cellspacing agregados -->
+            <table id="mensaje_qr" class="borderless layout lucida-console" cellspacing="0" cellpadding="0">
                 <tr class="borderless">
-                    <td style="width: 80%;" class="align-top borderless">
+                    <!-- tamaño de 'estimado cliente': de 80 a 75 -->
+                    <!-- padding-bottom agregado en lugar del png en blanco -->
+                    <td style="width: 75%;padding-bottom: 20px;" class="align-top borderless">
                         <p id="ticket_precio_con_letra" class="justify-left">SON: UN MIL SEISCIENTOS OCHENTA <br>Y SEIS PESOS CON 13/100 M.N.</p>
                         <p class="lucida-console justify letter-spacing">
                             Estimado Cliente: Le recordamos que podrá emitir el CFDI durante los 7 días siguientes al que se haya realizado la compra. De acuerdo con las disposiciones fiscales vigentes. Si el CFDI se solicita en un periodo distinto éste no podra ser emitido. Para mayor información puede comunicarse al 6624333543 o al <span class="justify-left-inblock">correo electrónico:</span> arcopindustrial@enervision.com.mx.<br><br>
@@ -132,13 +134,18 @@
                     </td>
                     <td id="qr" class="qr align-top borderless">
                         <br>
-                        <img class="qr" src="img/tickets/arco/qr.png" alt="">
+                        <!-- <img class="qr" src="img/tickets/arco/qr.png" alt=""> -->
+                        <div id="qrcode" class="qr"></div>
                     </td>
                 </tr>
             </table>
+            <!-- chicanada para el margen -->
+            <!-- <img class="qr" src="img/tickets/arco/separador_blanco.png" alt="" style="height: 10px;"> -->
         </div>
     </div>
     <script src="js/ticket-form.js"></script>
     <script src="js/numeroALetras.js"></script>
+    <script src="js/qrcode.js"></script>
+    <!-- <script src="js/qrious.js"></script> -->
 </body>
 </html>
