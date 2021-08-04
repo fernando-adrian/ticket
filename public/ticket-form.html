@@ -52,9 +52,9 @@
     <!-- template del ticket a imprimir -->
 
 
-    <div class="oculto-browser">
+    <div class="oculto-browser" style="background-color: black; border: 1px dotted black; overflow: hidden;">
         <!-- tamaño de importe de 87 a -->
-        <div class="ticket container" style="width: 87%;">
+        <div class="ticket container" style="width: 87%;background: black; border: 1px dotted black;">
             <img
                 src="img/tickets/arco/arco.png"
                 alt="Logotipo"
@@ -123,9 +123,12 @@
             <table id="mensaje_qr" class="borderless layout lucida-console" cellspacing="0" cellpadding="0">
                 <tr class="borderless">
                     <!-- tamaño de 'estimado cliente': de 80 a 75 -->
-                    <!-- padding-bottom agregado en lugar del png en blanco -->
-                    <td style="width: 75%;padding-bottom: 20px;" class="align-top borderless">
-                        <p id="ticket_precio_con_letra" class="justify-left">SON: UN MIL SEISCIENTOS OCHENTA <br>Y SEIS PESOS CON 13/100 M.N.</p>
+                    <!-- padding-bottom 20px agregado en lugar del png en blanco -->
+                    <td style="width: 75%;" class="align-top borderless">
+                        <div style="width: 95%;">
+                            <p id="ticket_precio_con_letra" class="justify-left">SON: UN MIL SEISCIENTOS OCHENTA <br>Y SEIS PESOS CON 13/100 M.N.</p>
+                        </div>
+                        
                         <p class="lucida-console justify letter-spacing">
                             Estimado Cliente: Le recordamos que podrá emitir el CFDI durante los 7 días siguientes al que se haya realizado la compra. De acuerdo con las disposiciones fiscales vigentes. Si el CFDI se solicita en un periodo distinto éste no podra ser emitido. Para mayor información puede comunicarse al 6624333543 o al <span class="justify-left-inblock">correo electrónico:</span> arcopindustrial@enervision.com.mx.<br><br>
                             Quejas y sugerencias:<br>
@@ -140,12 +143,11 @@
                 </tr>
             </table>
             <!-- chicanada para el margen -->
-            <!-- <img class="qr" src="img/tickets/arco/separador_blanco.png" alt="" style="height: 10px;"> -->
+            <img class="qr" src="img/tickets/arco/separador_blanco.png" alt="" style="height: 10px;">
         </div>
     </div>
     <script src="js/ticket-form.js"></script>
     <script src="js/numeroALetras.js"></script>
     <script src="js/qrcode.js"></script>
-    <!-- <script src="js/qrious.js"></script> -->
 </body>
 </html>

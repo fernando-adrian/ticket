@@ -13,6 +13,10 @@ select_estaciones.addEventListener('input', put_rfc);
 // var float_fixed = floating.toFixed(2);
 // console.log(float_fixed);
 
+const num_estacion = [
+    "01790",
+    "03719"
+];
 const estaciones = [
     "EST 1790 - BELLAS ARTES GASOLINERA SA DE CV",
     "EST 3719 - CORPORATIVO ENERVISION SAPI DE CV",
@@ -29,6 +33,7 @@ const direccion_2 = [
     "COL. ESPERANZA, MEXICALI, B.C. CP 21350",
     "S/N",
 ];
+
 
 function init() {
     
@@ -88,21 +93,29 @@ function imprimir(e){
     var atendidos_hipoteticos = (diferencia_dias * 1000);
     var factor_aleatorio = (Math.random() * 100);
     var ventas_calculadas = og_num_venta + atendidos_hipoteticos + factor_aleatorio;
+    var ventas_calculadas_int = parseInt(ventas_calculadas);
+    
+    var num_estacion_com_0 = num_estacion[document.getElementById('estaciones').value];
+    var cantidad_fixed3 = parseFloat(document.getElementById('cantidad').value).toFixed(3);
+    var total_fixed2 = parseFloat(document.getElementById('total').value).toFixed(2);
+    var precio_fixed_f2 = parseFloat(document.getElementById('precio').value).toFixed(2);
 
     document.getElementById('ticket_fecha_hora').innerHTML = "FECHA: " + fecha_correcta.getDate() + "/" + (parseInt(fecha_correcta.getMonth()) +1) + "/" + fecha_correcta.getFullYear().toString().substr(-2) + " " + document.getElementById('hora').value;
-    document.getElementById('ticket_cantidad').innerHTML = parseFloat(document.getElementById('cantidad').value).toFixed(3);
-    document.getElementById('ticket_precio').innerHTML = parseFloat(document.getElementById('precio').value).toFixed(2);
-    document.getElementById('ticket_importe').innerHTML = parseFloat(document.getElementById('total').value).toFixed(2);
+    document.getElementById('ticket_cantidad').innerHTML = cantidad_fixed3;
+    document.getElementById('ticket_precio').innerHTML = precio_fixed_f2
+    document.getElementById('ticket_importe').innerHTML = total_fixed2;
     document.getElementById('ticket_total').innerHTML = parseFloat( document.getElementById('total').value).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' MXN';
     document.getElementById('ticket_precio_con_letra').innerHTML = "SON: "+ NumeroALetras(document.getElementById('total').value) + " M.N.";
     document.getElementById('ticket_estacion').innerHTML = estaciones[document.getElementById('estaciones').value];
     document.getElementById('ticket_rfc').innerHTML = "RFC " + rfc[document.getElementById('estaciones').value];
     document.getElementById('ticket_direccion_1').innerHTML = direccion_1[document.getElementById('estaciones').value];
     document.getElementById('ticket_direccion_2').innerHTML = direccion_2[document.getElementById('estaciones').value];
-    document.getElementById('ticket_num_venta').innerHTML = "NUM VENTA: " + parseInt(ventas_calculadas);
+    document.getElementById('ticket_num_venta').innerHTML = "NUM VENTA: " + ventas_calculadas_int;
+
 
     var qr = new QRCode(document.getElementById("qrcode"),  {
-        text: "T|03719|861464|3|73.374|1686.13|0",
+        // text: "T|03719|861464|3|73.374|1686.13|0",
+        text: "T|"+num_estacion_com_0+"|"+ventas_calculadas_int+"|3|"+cantidad_fixed3+"|"+total_fixed2+"|0",
         width: 64,
         height: 64,
         colorDark : "#000000",
@@ -110,7 +123,8 @@ function imprimir(e){
         correctLevel : QRCode.CorrectLevel.L
     });
     window.print();
-    // qr.clear();
+    document.getElementById("qrcode").innerHTML = "";
+    qr.clear();
 
     // var qrious_code = new QRious();
     // qrious_code = new QRious({
