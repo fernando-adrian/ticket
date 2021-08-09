@@ -112,35 +112,38 @@ function imprimir(e){
     document.getElementById('ticket_direccion_2').innerHTML = direccion_2[document.getElementById('estaciones').value];
     document.getElementById('ticket_num_venta').innerHTML = "NUM VENTA: " + ventas_calculadas_int;
 
-
-    var qr = new QRCode(document.getElementById("qrcode"),  {
-        // text: "T|03719|861464|3|73.374|1686.13|0",
-        text: "T|"+num_estacion_com_0+"|"+ventas_calculadas_int+"|3|"+cantidad_fixed3+"|"+total_fixed2+"|0",
-        width: 64,
-        height: 64,
-        colorDark : "#000000",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.L
-    });
-    window.print();
-    document.getElementById("qrcode").innerHTML = "";
-    qr.clear();
-
-    // var qrious_code = new QRious();
-    // qrious_code = new QRious({
-    //     element: document.getElementById('qrcode'),
-    //     size: 80,
-    //     padding: 0,
-    //     value: 'T|03719|861464|3|73.374|1686.13|0',
-    //     background: '#ffffff',
-    //     foreground: '#000000'
-    //   });
-    // console.log('timeout init');
-    // setTimeout(() => {
+    // Qrious
+    var qrious_code = new QRious();
+    qrious_code = new QRious({
+        element: document.getElementById('qrcode'),
+        size: 80,
+        padding: 2,
+        value: "T|"+num_estacion_com_0+"|"+ventas_calculadas_int+"|3|"+cantidad_fixed3+"|"+total_fixed2+"|0",
+        background: '#ffffff',
+        foreground: '#000000',
+        level: 'M'
+      });
+    console.log('timeout init');
+    // window.print();
+    setTimeout(() => {
     
-    //     window.print();  
-    //   console.log('timeout end');
-    // }, 1000);
+        window.print();  
+      console.log('timeout end');
+    }, 1);
+    
+    //QRCODE
+    // var qr = new QRCode(document.getElementById("qrcode"),  {
+    //     // text: "T|03719|861464|3|73.374|1686.13|0",
+    //     text: "T|"+num_estacion_com_0+"|"+ventas_calculadas_int+"|3|"+cantidad_fixed3+"|"+total_fixed2+"|0",
+    //     width: 64,
+    //     height: 64,
+    //     colorDark : "#000000",
+    //     colorLight : "#ffffff",
+    //     correctLevel : QRCode.CorrectLevel.L
+    // });
+    // window.print();
+    // document.getElementById("qrcode").innerHTML = "";
+    // qr.clear();
   }
 /*
   formato del QR
