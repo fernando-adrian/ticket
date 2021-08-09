@@ -63,7 +63,8 @@
 
 .qr{
     padding-left: 2px;
-    /* height: 88px; */
+    height: 85px;
+    width: 85px;
 }
 
 .oculto-browser {
@@ -97,8 +98,10 @@
     @page {
         margin: 0;
     }
-    .container {
-        margin: .1cm;
+    .separador {
+        position: absolute;
+        bottom: -10px;
+        left: 132px;
     }
     
 }
