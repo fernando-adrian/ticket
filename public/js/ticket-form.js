@@ -1,47 +1,98 @@
 
+initFirebase();
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      console.log('logged in');
+      document.getElementById('form-box').style.visibility = 'visible';
+    } else {
+      // No user is signed in.
+      console.log('not logged in');
+      document.getElementById('form-box').style.visibility = 'hidden';
+      window.location.href = 'index.html';
+    }
+  });
+
+  document.getElementById('logout').addEventListener('click',cerrar_sesion);
+  document.getElementById('back').addEventListener('click',back);
+
+function cerrar_sesion(){
+    console.log('logout gallery');
+    firebase.auth().signOut();
+}
+
+function back(){
+    console.log('atras');
+    window.location.href = 'ticket-gallery.html';
+}
+
+function initFirebase(){
+    //import firebase from "firebase/app"
+    var firebaseConfig = {
+        apiKey: "AIzaSyBA_ebBq9qUw8XBBZ5eNh83vRjhhI8HMdw",
+        authDomain: "ticket-go.firebaseapp.com",
+        projectId: "ticket-go",
+        storageBucket: "ticket-go.appspot.com",
+        messagingSenderId: "611776354257",
+        appId: "1:611776354257:web:60ba0681cacbf30cc3f2f0",
+        measurementId: "G-SLCZW5RCN6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    console.log('Firebase inicializado');
+}
+
+
 var input_cantidad = document.getElementById('cantidad');
 var input_precio = document.getElementById('precio');
 var input_total = document.getElementById('total');
 var select_estaciones = document.getElementById('estaciones');
 
-input_cantidad.addEventListener('input', fn_total);
-input_precio.addEventListener('input', fn_total);
+input_cantidad.addEventListener('input', put_total);
+input_precio.addEventListener('input', put_total);
 select_estaciones.addEventListener('input', put_rfc);
 
-// console.log('hola');
-// var floating = 30;
-// var float_fixed = floating.toFixed(2);
-// console.log(float_fixed);
-
 const num_estacion = [
-    "01790",
-    "03719"
+    "03719",
+    "00000"
 ];
 const estaciones = [
-    "EST 1790 - BELLAS ARTES GASOLINERA SA DE CV",
     "EST 3719 - CORPORATIVO ENERVISION SAPI DE CV",
+    "EST 0000 - "
 ];
 const rfc = [
-    "BAG040224015",
     "CEN171221EE0",
+    "RFC"
 ];
 const direccion_1 = [
-    "SONORA Y VILLAHERMOSA",
     "CARR.A LA COLORADA KM. 3.5 ESQ. PLANETARIO",
+    "BLVD. PASEO DE LAS PALMAS 1, LAS LOMAS"
 ]
 const direccion_2 = [
-    "COL. ESPERANZA, MEXICALI, B.C. CP 21350",
     "S/N",
+    "S/N"
 ];
 
 
 function init() {
     
-    put_rfc();            
+    init_select();
+    put_rfc();
 
 }
 
-function fn_total(){
+function init_select(){
+
+    var estaciones_select = document.getElementById('estaciones');
+    estaciones.forEach((element, i) => {
+        var option = document.createElement('option');
+        option.setAttribute('value',i.toString());
+        option.innerHTML = element;
+        estaciones_select.append(option);
+    });      
+}
+
+function put_total(){
     
     if (document.getElementById('cantidad').value == '' || document.getElementById('precio').value == '')
         return;
@@ -73,7 +124,7 @@ function validaciones(){
     if (message_alert == '')
         return true;
 
-    alert(message_alert,'asdad');
+    alert(message_alert);
     return false;
 }
 
@@ -87,20 +138,23 @@ function imprimir(e){
     var fecha = new Date(document.getElementById('fecha').value);
     var fecha_offset = fecha.getTimezoneOffset() * 60000;
     var fecha_correcta = new Date(fecha.getTime() + fecha_offset);
-    
-    const og_num_venta = 861464;
+    const og_num_venta = 861464;//tomada del primer ticket muestra
     var diferencia_dias = (new Date(fecha_correcta) - new Date("07/18/21")) / (1000 * 3600 * 24);
     var atendidos_hipoteticos = (diferencia_dias * 1000);
     var factor_aleatorio = (Math.random() * 100);
     var ventas_calculadas = og_num_venta + atendidos_hipoteticos + factor_aleatorio;
     var ventas_calculadas_int = parseInt(ventas_calculadas);
-    
+
     var num_estacion_com_0 = num_estacion[document.getElementById('estaciones').value];
     var cantidad_fixed3 = parseFloat(document.getElementById('cantidad').value).toFixed(3);
     var total_fixed2 = parseFloat(document.getElementById('total').value).toFixed(2);
     var precio_fixed_f2 = parseFloat(document.getElementById('precio').value).toFixed(2);
+    var date_fixed_2 = fecha_correcta.getDate().toString().padStart(2,'0');
+    var month_fixed_2 = (parseInt(fecha_correcta.getMonth()) +1).toString().padStart(2,'0');
+    var year_fixed_2 = fecha_correcta.getFullYear().toString().substr(-2);
+    var hora_fixed_2_2 = document.getElementById('hora').value;
 
-    document.getElementById('ticket_fecha_hora').innerHTML = "FECHA: " + fecha_correcta.getDate() + "/" + (parseInt(fecha_correcta.getMonth()) +1) + "/" + fecha_correcta.getFullYear().toString().substr(-2) + " " + document.getElementById('hora').value;
+    document.getElementById('ticket_fecha_hora').innerHTML = "FECHA: " + date_fixed_2 + "/" + month_fixed_2 + "/" + year_fixed_2 + " " + hora_fixed_2_2;
     document.getElementById('ticket_cantidad').innerHTML = cantidad_fixed3;
     document.getElementById('ticket_precio').innerHTML = precio_fixed_f2
     document.getElementById('ticket_importe').innerHTML = total_fixed2;
@@ -123,29 +177,12 @@ function imprimir(e){
         foreground: '#000000',
         level: 'M'
       });
-    console.log('timeout init');
-    // window.print();
+    
     setTimeout(() => {
-    
         window.print();  
-      console.log('timeout end');
     }, 1);
-    
-    //QRCODE
-    // var qr = new QRCode(document.getElementById("qrcode"),  {
-    //     // text: "T|03719|861464|3|73.374|1686.13|0",
-    //     text: "T|"+num_estacion_com_0+"|"+ventas_calculadas_int+"|3|"+cantidad_fixed3+"|"+total_fixed2+"|0",
-    //     width: 64,
-    //     height: 64,
-    //     colorDark : "#000000",
-    //     colorLight : "#ffffff",
-    //     correctLevel : QRCode.CorrectLevel.L
-    // });
-    // window.print();
-    // document.getElementById("qrcode").innerHTML = "";
-    // qr.clear();
   }
-/*
+  /*
   formato del QR
 
   T|03719|861464|3|73.374|1686.13|0
@@ -157,7 +194,6 @@ function imprimir(e){
   73.374 = CANT LITROS
   1686.13 = IMPORTE
   0 = ?
-
 
   T|01790|3799314|1|2.360|50.00|0
   fin
