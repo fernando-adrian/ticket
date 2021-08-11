@@ -1,91 +1,91 @@
 initFirebase();
-firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser)
-        console.log(firebaseUser);
-    else
-        console.log("not logged");
-});
 
-document.getElementById('error').style.visibility = 'hidden';
-
+var usuario_input = document.getElementById('usuario');
+var password_input = document.getElementById('password');
 var login_button = document.getElementById('login');
+var error_credentials = document.getElementById('error');
+var error_mask = document.getElementById('error_mask');
+var crear_usuario_button = document.getElementById('crear-usuario');
+
+error_credentials.style.visibility = 'hidden';
+error_mask.style.visibility = 'hidden';
+
+crear_usuario_button.addEventListener('click', crearUsuario);
 login_button.addEventListener('click', iniciar_sesion);
 
-var crear_usuario_button = document.getElementById('crear-usuario');
-crear_usuario_button.addEventListener('click', crearUsuario);
+usuario_input.addEventListener('keyup', function(event){
+    if(event.key === 'Enter')
+    {
+        console.log('ENTER');
+        iniciar_sesion();
+    }
+});
 
-var verificar_sesion_button = document.getElementById('verificar-sesion');
-verificar_sesion_button.addEventListener('click', verificarSesion);
+password_input.addEventListener('keyup', function(event){
+    if(event.key === 'Enter')
+    {
+        console.log('ENTER');
+        iniciar_sesion();
+    }
+});
 
-var logout_button = document.getElementById('logout');
-logout_button.addEventListener('click', cerrar_sesion);
-
-function cerrar_sesion(){
-    firebase.auth().signOut();
-}
-
-function verificarSesion(){
-    if (firebase.auth().currentUser == null)
-        console.log("no hay sesion activa");
+usuario_input.addEventListener('input', (event)=>{
+    
+    let reg_exp = new RegExp('[a-zA-Z0-9-_.]');
+    if (!reg_exp.test(event.data))
+    {
+        var usuario_string = usuario_input.value.toString();
+        usuario_input.value = usuario_string.substring(0 ,usuario_string.length - 1);
+        error_mask.style.visibility = 'visible';
+    }
     else
-        console.log("SESION ACTIVA");
-}
+    {
+        error_mask.style.visibility = 'hidden';
+    }
 
+    error_credentials.style.visibility = 'hidden';
+});
+
+password_input.addEventListener('input', ()=>{
+    error_credentials.style.visibility = 'hidden';
+});
 
 function crearUsuario(){
     
-    // e.preventDefault();
-    console.log('crear usuario');
     var email = '';
     var password = '';
-
-    var usuario = firebase.auth().currentUser;
-    console.log("usuario" + usuario);
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-        // Signed in
         var user = userCredential.user;
         console.log('Usuario creado: ' + user);
-        // ...
     })
     .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log('ERROR: ' + errorCode + " " + errorMessage);
-        // ..
     });
 
 }
 
 function iniciar_sesion(){
     
-    var email = document.getElementById('email').value || "";
+    var usuario = document.getElementById('usuario').value || "";
     var password = document.getElementById('password').value || "";
-    console.log('email' + email);
-    console.log('password' + password);
 
+    var email_full = usuario + "@gmail.com";
+    console.log('email' + email_full);
+    console.log('password' + password);
     
-    firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
+    firebase.auth().signInWithEmailAndPassword(email_full, password).then((userCredential) => {
         var user = userCredential;
         if (firebase.auth().currentUser != null)
-            console.log("SESION ACTIVA");
-        
-        window.location.href = 'ticket-gallery.html';
-        console.log("redireccion a ticket gallery");
+            console.log("LOGIN EXITOSO");
     })
     .catch((error) => {
-        //error al autenticar
         console.log('ERROR AL AUTENTICAR');
         document.getElementById('error').style.visibility = 'visible';
 
     });
-    
-    // firebase.auth().signOut().then( (user) =>{
-    //     console.log('sign out');
-    // })
-    // .catch( (error)=>{
-    //     console.log('error en Sign out');
-    // });
     
 }
 
@@ -103,4 +103,13 @@ function initFirebase(){
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     console.log('Firebase inicializado');
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser){
+            window.location.href = 'ticket-gallery.html';
+        }
+        else
+        {
+            document.getElementById('body').style.visibility = 'visible';
+        }
+    });
 }
