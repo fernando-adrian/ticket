@@ -7,18 +7,26 @@
     <title>Ticket-Go</title>
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/arco-styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
     
 </head>
 <body class="body" onload="init();">
-    <div class="login-box oculto-impresion">
+    <div id="form-box" class="login-box oculto-impresion">
+        <div>
+            <div id="logout" class="menu"><h2>Log Out</h2></div>
+        </div>
+        <div>
+            <div id="back" class="menu menu-right"><h2>Atrás</h2></div>
+        </div>
         <!-- <form action="ticket-arco-print.html"> -->
             <form onsubmit="return imprimir(event)">
                 <img src="img/button-gallery/arco.png" class="form-ticket-icon" alt="Avatar Image">
             
                     <label for="estaciones">ESTACIONES</label>
                     <select name="estaciones" id="estaciones">
-                        <option value="0">EST 1790 - BELLAS ARTES GASOLINERA SA DE CV</option>
-                        <option value="1">EST 3719 - CORPORATIVO ENERVISION SAPI DE CV</option>
+                        <!-- <option value="0">EST 3719 - CORPORATIVO ENERVISION SAPI DE CV</option> -->
                     </select>
             
                     <label for="rfc">RFC</label>
