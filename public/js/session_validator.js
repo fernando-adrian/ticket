@@ -4,17 +4,21 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
       console.log('logged in');
-      document.getElementById('ticket-gallery-card').classList.remove('oculto');
+      document.getElementById('ticket-gallery-card').style.visibility = 'visible';
     } else {
       // No user is signed in.
       console.log('not logged in');
-      document.getElementById('ticket-gallery-card').classList.add('oculto');
+      document.getElementById('ticket-gallery-card').style.visibility = 'hidden';
+      window.location.href = 'index.html';
     }
   });
 
-document.getElementById('logout').addEventListener('click', ()=>{
-    firebase.auth().signOut();
-});
+document.getElementById('logout').addEventListener('click',cerrar_sesion);
+
+function cerrar_sesion(){
+  console.log('logout gallery');
+  firebase.auth().signOut();
+}
 
 function initFirebase(){
     //import firebase from "firebase/app"
