@@ -54,34 +54,29 @@ select_estaciones.addEventListener('input', put_rfc);
 
 const num_estacion = [
     "03719",
-    "00000"
 ];
 const estaciones = [
     "EST 3719 - CORPORATIVO ENERVISION SAPI DE CV",
-    "EST 0000 - "
 ];
 const rfc = [
     "CEN171221EE0",
-    "RFC"
 ];
 const direccion_1 = [
     "CARR.A LA COLORADA KM. 3.5 ESQ. PLANETARIO",
-    "BLVD. PASEO DE LAS PALMAS 1, LAS LOMAS"
 ]
 const direccion_2 = [
-    "S/N",
-    "S/N"
+    "S/N, HERMOSILLO, SONORA",
 ];
 
 
 function init() {
     
-    init_select();
+    init_select_estaciones();
     put_rfc();
 
 }
 
-function init_select(){
+function init_select_estaciones(){
 
     var estaciones_select = document.getElementById('estaciones');
     estaciones.forEach((element, i) => {
