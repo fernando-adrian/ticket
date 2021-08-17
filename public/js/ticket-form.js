@@ -54,18 +54,65 @@ select_estaciones.addEventListener('input', put_rfc);
 
 const num_estacion = [
     "03719",
+    "09515",
 ];
 const estaciones = [
     "EST 3719 - CORPORATIVO ENERVISION SAPI DE CV",
+    "EST 9515 - CORPORATIVO ENERVISION SAPI DE CV",
 ];
 const rfc = [
+    "CEN171221EE0",
     "CEN171221EE0",
 ];
 const direccion_1 = [
     "CARR.A LA COLORADA KM. 3.5 ESQ. PLANETARIO",
+    "PASEO RIO SONORA SUR 458",
 ]
 const direccion_2 = [
     "S/N, HERMOSILLO, SONORA",
+    "MONTE CARLO, HERMOSILLO, SON. CP 83288"
+];
+const fecha_original = [
+    "07/18/21",
+    "08/13/21",
+];
+const num_original_ventas = [
+    861464,
+    588970,
+];
+const mensaje = [
+    `Estimado Cliente: Le recordamos
+    que podrá emitir el CFDI durante
+    los 7 días siguientes al que se
+    haya realizado la compra. De
+    acuerdo con las disposiciones
+    fiscales vigentes. Si el CFDI se
+    solicita en un periodo distinto
+    éste no podra ser emitido. Para
+    mayor información puede
+    comunicarse al 6624333543 o al
+    <span class="justify-left-inblock">correo electrónico:</span>
+    arcopindustrial@enervision.com.mx.<br><br>
+    Quejas y sugerencias:<br>
+    atencionaclientes@profuels.mx`,
+    `Estimado Cliente: Le recordamos
+    que podrá emitir el CFDI durante
+    los 7 días siguientes al que se
+    haya realizado la compra. De
+    acuerdo con las disposiciones
+    fiscales vigentes. Si el CFDI se
+    solicita en un periodo distinto
+    éste no podra ser emitido. Para
+    mayor información puede
+    comunicarse al 6621278763 o al
+    <span class="justify-left-inblock">correo electrónico:</span>
+    arcodelrio@enervision.com.mx.
+    <span>Puede emitir su factura en
+    www.buzonfacturas.com con el
+    ticket de venta</span><br><br>
+    Quejas y sugerencias:<br>
+    atencionaclientes@profuels.mx<br>
+    <pre class="lucida-console justify letter-spacing">GRACIAS   POR  ACUMULAR  ARCOINS.</pre>`,
 ];
 
 
@@ -130,17 +177,18 @@ function imprimir(e){
     if (!validaciones())
         return;
 
+    var estacion_seleccionada = document.getElementById('estaciones').value;
     var fecha = new Date(document.getElementById('fecha').value);
     var fecha_offset = fecha.getTimezoneOffset() * 60000;
     var fecha_correcta = new Date(fecha.getTime() + fecha_offset);
-    const og_num_venta = 861464;//tomada del primer ticket muestra
-    var diferencia_dias = (new Date(fecha_correcta) - new Date("07/18/21")) / (1000 * 3600 * 24);
+    const og_num_venta = num_original_ventas[estacion_seleccionada];
+    var diferencia_dias = (new Date(fecha_correcta) - new Date(fecha_original[estacion_seleccionada])) / (1000 * 3600 * 24);
     var atendidos_hipoteticos = (diferencia_dias * 1000);
     var factor_aleatorio = (Math.random() * 100);
     var ventas_calculadas = og_num_venta + atendidos_hipoteticos + factor_aleatorio;
     var ventas_calculadas_int = parseInt(ventas_calculadas);
 
-    var num_estacion_com_0 = num_estacion[document.getElementById('estaciones').value];
+    var num_estacion_con_0 = num_estacion[estacion_seleccionada];
     var cantidad_fixed3 = parseFloat(document.getElementById('cantidad').value).toFixed(3);
     var total_fixed2 = parseFloat(document.getElementById('total').value).toFixed(2);
     var precio_fixed_f2 = parseFloat(document.getElementById('precio').value).toFixed(2);
@@ -155,11 +203,13 @@ function imprimir(e){
     document.getElementById('ticket_importe').innerHTML = total_fixed2;
     document.getElementById('ticket_total').innerHTML = parseFloat( document.getElementById('total').value).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' MXN';
     document.getElementById('ticket_precio_con_letra').innerHTML = "SON: "+ NumeroALetras(document.getElementById('total').value) + " M.N.";
-    document.getElementById('ticket_estacion').innerHTML = estaciones[document.getElementById('estaciones').value];
-    document.getElementById('ticket_rfc').innerHTML = "RFC " + rfc[document.getElementById('estaciones').value];
-    document.getElementById('ticket_direccion_1').innerHTML = direccion_1[document.getElementById('estaciones').value];
-    document.getElementById('ticket_direccion_2').innerHTML = direccion_2[document.getElementById('estaciones').value];
+    document.getElementById('ticket_estacion').innerHTML = estaciones[estacion_seleccionada];
+    document.getElementById('ticket_rfc').innerHTML = "RFC " + rfc[estacion_seleccionada];
+    document.getElementById('ticket_direccion_1').innerHTML = direccion_1[estacion_seleccionada];
+    document.getElementById('ticket_direccion_2').innerHTML = direccion_2[estacion_seleccionada];
     document.getElementById('ticket_num_venta').innerHTML = "NUM VENTA: " + ventas_calculadas_int;
+
+    document.getElementById('ticket_mensaje').innerHTML = mensaje[estacion_seleccionada];
 
     // Qrious
     var qrious_code = new QRious();
@@ -167,7 +217,7 @@ function imprimir(e){
         element: document.getElementById('qrcode'),
         size: 80,
         padding: 2,
-        value: "T|"+num_estacion_com_0+"|"+ventas_calculadas_int+"|3|"+cantidad_fixed3+"|"+total_fixed2+"|0",
+        value: "T|"+num_estacion_con_0+"|"+ventas_calculadas_int+"|3|"+cantidad_fixed3+"|"+total_fixed2+"|0",
         background: '#ffffff',
         foreground: '#000000',
         level: 'M'
