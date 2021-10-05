@@ -55,30 +55,37 @@ select_estaciones.addEventListener('input', put_rfc);
 const num_estacion = [
     "03719",
     "09515",
+    "05864",
 ];
 const estaciones = [
     "EST 3719 - CORPORATIVO ENERVISION SAPI DE CV",
     "EST 9515 - CORPORATIVO ENERVISION SAPI DE CV",
+    "EST 5864 - CORPORATIVO ENERVISION S A P I DE CV",
 ];
 const rfc = [
     "CEN171221EE0",
     "CEN171221EE0",
+    "",
 ];
 const direccion_1 = [
     "CARR.A LA COLORADA KM. 3.5 ESQ. PLANETARIO",
     "PASEO RIO SONORA SUR 458",
+    "BLVD. PASEO LAS PALMAS 1",
 ]
 const direccion_2 = [
     "S/N, HERMOSILLO, SONORA",
-    "MONTE CARLO, HERMOSILLO, SON. CP 83288"
+    "MONTE CARLO, HERMOSILLO, SON. CP 83288",
+    "LAS LOMAS, HERMOSILLO, SON CP 83296",
 ];
 const fecha_original = [
     "07/18/21",
     "08/13/21",
+    "10/03/21",
 ];
 const num_original_ventas = [
     861464,
     588970,
+    1507637,
 ];
 const mensaje = [
     `Estimado Cliente: Le recordamos
@@ -95,6 +102,7 @@ const mensaje = [
     arcopindustrial@enervision.com.mx.<br><br>
     Quejas y sugerencias:<br>
     atencionaclientes@profuels.mx`,
+
     `Estimado Cliente: Le recordamos
     que podrá emitir el CFDI durante
     los 7 días siguientes al que se
@@ -113,6 +121,21 @@ const mensaje = [
     Quejas y sugerencias:<br>
     atencionaclientes@profuels.mx<br>
     <pre class="lucida-console justify letter-spacing">GRACIAS   POR  ACUMULAR  ARCOINS.</pre>`,
+    
+    `Estimado Cliente: Le recordamos
+    que podrá emitir el CFDI durante
+    los 7 días siguientes al que se
+    haya realizado la compra. De
+    acuerdo con las disposiciones
+    fiscales vigentes. Si el CFDI se
+    solicita en un periodo distinto
+    éste no podrá ser emitido. Para
+    mayor información puede
+    comunicarse al 6624333510 o al
+    <span class="justify-left-inblock">correo electrónico:</span>
+    arcolomas@enervision.com.mx<br><br>
+    Quejas y sugerencias:<br>
+    atencionaclientes@profuels.mx`
 ];
 
 
@@ -148,7 +171,10 @@ function put_total(){
 
 function put_rfc(){
 
-    document.getElementById('rfc').value = rfc[select_estaciones.value];
+    if (rfc[select_estaciones.value] != "")
+        document.getElementById('rfc').value = rfc[select_estaciones.value];
+    else
+        document.getElementById('rfc').value = "SIN RFC EN EL TICKET";
 }
 
 function validaciones(){
@@ -204,7 +230,10 @@ function imprimir(e){
     document.getElementById('ticket_total').innerHTML = parseFloat( document.getElementById('total').value).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' MXN';
     document.getElementById('ticket_precio_con_letra').innerHTML = "SON: "+ NumeroALetras(document.getElementById('total').value) + " M.N.";
     document.getElementById('ticket_estacion').innerHTML = estaciones[estacion_seleccionada];
-    document.getElementById('ticket_rfc').innerHTML = "RFC " + rfc[estacion_seleccionada];
+    if (rfc[estacion_seleccionada] != "")
+        document.getElementById('ticket_rfc').innerHTML = "RFC " + rfc[estacion_seleccionada];
+    else
+        document.getElementById('ticket_rfc').innerHTML = "";
     document.getElementById('ticket_direccion_1').innerHTML = direccion_1[estacion_seleccionada];
     document.getElementById('ticket_direccion_2').innerHTML = direccion_2[estacion_seleccionada];
     document.getElementById('ticket_num_venta').innerHTML = "NUM VENTA: " + ventas_calculadas_int;
