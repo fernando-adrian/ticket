@@ -56,36 +56,44 @@ const num_estacion = [
     "03719",
     "09515",
     "05864",
+    "55065",
 ];
 const estaciones = [
     "EST 3719 - CORPORATIVO ENERVISION SAPI DE CV",
     "EST 9515 - CORPORATIVO ENERVISION SAPI DE CV",
     "EST 5864 - CORPORATIVO ENERVISION S A P I DE CV",
+    "EST 55065 - GRUPO CASTILLO FELIX, S.A. DE C.V.",
 ];
 const rfc = [
     "CEN171221EE0",
     "CEN171221EE0",
     "",
+    ""
 ];
 const direccion_1 = [
     "CARR.A LA COLORADA KM. 3.5 ESQ. PLANETARIO",
     "PASEO RIO SONORA SUR 458",
     "BLVD. PASEO LAS PALMAS 1",
+    "CARR. PEÑASCO-SONOYTA Y CALLE LISBOA 450",
 ]
 const direccion_2 = [
     "S/N, HERMOSILLO, SONORA",
     "MONTE CARLO, HERMOSILLO, SON. CP 83288",
     "LAS LOMAS, HERMOSILLO, SON CP 83296",
+    "BRISAS DEL GOLFO, PUERTO PEÑASCO, SON.  CP",
 ];
 const fecha_original = [
+    //mm/dd/yy
     "07/18/21",
     "08/13/21",
     "10/03/21",
+    "10/17/21",
 ];
 const num_original_ventas = [
     861464,
     588970,
     1507637,
+    337360,
 ];
 const mensaje = [
     `Estimado Cliente: Le recordamos
@@ -134,6 +142,15 @@ const mensaje = [
     comunicarse al 6624333510 o al
     <span class="justify-left-inblock">correo electrónico:</span>
     arcolomas@enervision.com.mx<br><br>
+    Quejas y sugerencias:<br>
+    atencionaclientes@profuels.mx`,
+
+    `Para mayor información puede
+    comunicarse al [6383832399] o
+    <span class="justify-left-inblock">al correo electrónico:</span>
+    [serviciosonora@hotmail.com]
+    facturacion<br>
+    www.buzonfacturas.com<br>
     Quejas y sugerencias:<br>
     atencionaclientes@profuels.mx`
 ];
