@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket-Go</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/arco-styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    
+</head>
+<body class="body" onload="init();">
+    <div id="form-box" class="login-box oculto-impresion">
+        <div>
+            <div id="logout" class="menu"><h2>Log Out</h2></div>
+        </div>
+        <div>
+            <div id="back" class="menu menu-right"><h2>Atrás</h2></div>
+        </div>
+        <!-- <form action="ticket-arco-print.html"> -->
+            <form onsubmit="return imprimir(event)">
+                <img src="img/button-gallery/arco.png" class="form-ticket-icon" alt="Avatar Image">
+            
+                    <label for="caseta">CASETA</label>
+                    <select name="casetas" id="casetas">
+                        <!-- <option value="0">EST 3719 - CORPORATIVO ENERVISION SAPI DE CV</option> -->
+                    </select>
+            
+                    <label for="fecha">FECHA</label>
+                    <input type="date" name="fecha" id="fecha">
+            
+                    <label for="hora">HORA</label>
+                    <input type="time" name="hora" id="hora" step="1">
+                
+                    <label for="importe">IMPORTE</label>
+                    <input type="number" name="importe" id="importe" value="0" readonly>
+
+                    <label for="iva">IVA</label>
+                    <input type="number" name="iva" id="iva" value="0" readonly>
+
+                    <label for="total">TOTAL</label>
+                    <input type="number" name="total" id="total" value="0">
+                    
+                    <input type="submit" (click)="imprimir()" value="IMPRIMIR">
+                    
+
+        </form>
+    </div>
+
+
+    <!-- template del ticket a imprimir -->
+
+
+    <div class="oculto-browser" style="overflow: hidden;">
+        <!-- tamaño de importe de 87 a -->
+        <div class="ticket" style="width: 100%;">
+            <table id="table_titulo" class="borderless table-debug" style="padding-top: 5px;padding-left: 18px;" cellspacing="0" cellpadding="0">
+                <tr class="row-height">
+                    <td id="ticket_caseta" colspan="2">LIBRAMIENTO DE CIUDAD OBREGÓN</td>
+                </tr>
+                <tr class="row-height">
+                    <td id="ticket_leyenda" colspan="2">ESTE BOLETO AMPARA SU SEGURO</td>
+                </tr>
+                <tr class="row-height">
+                    <td id="ticket_telefono_pagina" colspan="2">TEL: 800-822-0822 / www.lico.mx</td>
+                </tr>
+                <tr>
+                    <td style="height: 12px;"></td>
+                </tr>
+                <tr class="row-height">
+                    <td style="width: 43%;">Plaza de cobro</td>
+                    <td id="ticket-plaza">: HORNOS-A</td>
+                </tr>
+                <tr class="row-height">
+                    <td>Carril</td>
+                    <td id="ticket-carril">: LICO-LF03</td>
+                </tr>
+                <tr class="row-height">
+                    <td>Clase</td>
+                    <td>: C5</td>
+                </tr>
+                <tr class="row-height">
+                    <td>Forma de pago</td>
+                    <td>: Efectivo</td>
+                </tr>
+                <tr class="row-height">
+                    <td>CAJERO</td>
+                    <td id="ticket-cajero">: 3192</td>
+                </tr>
+                <tr class="row-height">
+                    <td>Num. Transito</td>
+                    <td id="ticket-transito">: 749900</td>
+                </tr>
+                <tr class="row-height">
+                    <td>Fecha</td>
+                    <td id="ticket-fecha-hora">: 29/11/2021 06:19:37</td>
+                </tr>
+                <tr class="row-height">
+                    <td>Importe</td>
+                    <td id="ticket-importe">: $434.50</td>
+                </tr>
+                <tr class="row-height">
+                    <td>IVA</td>
+                    <td id="ticket-iva">: $69.50</td>
+                </tr>
+                <tr class="row-height">
+                    <td>Total</td>
+                    <td id="ticket-total">: $504.00</td>
+                </tr>
+                <tr>
+                    <td style="height: 10px;"></td>
+                </tr>
+                <tr id="buen-viaje" class="row-height text-align-center" style="width: 90%;">
+                    <td colspan="2">BUEN VIAJE</td>
+                </tr>
+            </table>
+            <!-- <table class="borderless courier-new table-debug" style="width: 90%;">
+                <tr class="text-align-center">
+                    <td>BUEN VIAJE</td>
+                </tr>
+            </table> -->
+            <!-- cellpadding y cellspacing agregados -->
+            <table id="img_barcode" class="borderless layout lucida-console table-debug" cellspacing="0" cellpadding="0">
+                <img class="barcode" src="img/casetas/barcode.png" alt="">
+            </table>
+            <table class="numero-barcode barcode-font">
+                <td>052133306193774990000006000005</td>
+            </table>
+            <!-- chicanada para el margen -->
+            <!-- <img class="separador-caseta" src="img/tickets/arco/separador_blanco_1px.png" alt=""> -->
+        </div>
+    </div>
+    <script src="js/caseta-ticket-form.js"></script>
+    <script src="js/numeroALetras.js"></script>
+    <!-- <script src="js/qrcode.js"></script> -->
+    <script src="js/qrious.js"></script>
+</body>
+</html>

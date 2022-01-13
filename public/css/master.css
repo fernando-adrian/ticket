@@ -273,10 +273,18 @@
     transform: translate(-50%, -50%);
 }
 
+.text-align-center {
+    text-align: center;
+}
+
 .debug-border{
     border: 1px solid red;
 }
 
 .oculto{
     visibility: hidden;
+}
+
+.not-display{
+    display: none;
 }
