@@ -51,6 +51,14 @@ const fuentes = [
     "courier-new",
     "courier-new-small",
 ];
+const row_heights = [
+    "row-height-12",
+    "row-height-10",
+];
+const padding_left = [
+    "18px",
+    "5px",
+];
 const casetas = [
     "LIBRAMIENTO DE CIUDAD OBREGON",
     "CONCESIONARIA AUTOPISTA LIBRAMIENTO <br>HERMOSILLO",    
@@ -136,7 +144,6 @@ function imprimir(e){
         return;
 
     var caseta_seleccionada = document.getElementById('casetas').value;
-
     var fecha = new Date(document.getElementById('fecha').value);
     var fecha_offset = fecha.getTimezoneOffset() * 60000;
     var fecha_correcta = new Date(fecha.getTime() + fecha_offset);
@@ -162,11 +169,19 @@ function imprimir(e){
     document.getElementById('ticket-iva').innerHTML = ": $" + document.getElementById('iva').value.replace(/\./g, ',');
     document.getElementById('ticket-total').innerHTML = ": $" + parseFloat(document.getElementById('total').value).toFixed(2).replace(/\./g, ','); 
     
-    if (caseta_seleccionada == 1){
+    if (caseta_seleccionada == 0){
+        document.getElementById('buen-viaje').classList.remove('not-display');
+        document.getElementById('spacer').style.height = '10px';
+    } else if (caseta_seleccionada == 1){//hermosillo no lleva buen viaje
         document.getElementById('buen-viaje').classList.add('not-display');
+        document.getElementById('spacer').style.height = '17px';
     }
 
+    document.getElementById("table_titulo").classList = "";
+    document.getElementById("table_titulo").classList.add('borderless');
     document.getElementById("table_titulo").classList.add(fuentes[caseta_seleccionada]);
+    document.getElementById("table_titulo").classList.add(row_heights[caseta_seleccionada]);
+    document.getElementById("table_titulo").style.paddingLeft = padding_left[caseta_seleccionada];
     
     setTimeout(() => {
         window.print();  
