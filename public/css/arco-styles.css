@@ -95,12 +95,12 @@
     background: red;
 }
 
-.row-height{
-    height: 12px;
+.row-height-10 tr{
+    height: 10px;
 }
 
-.row-height-10{
-    height: 10px;
+.row-height-12 tr{
+    height: 12px;
 }
 
 .oculto-browser {
