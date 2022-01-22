@@ -57,30 +57,40 @@ const num_estacion = [
     "09515",
     "05864",
     "55065",
+    "10460",
+    "50024",
 ];
 const estaciones = [
     "EST 3719 - CORPORATIVO ENERVISION SAPI DE CV",
     "EST 9515 - CORPORATIVO ENERVISION SAPI DE CV",
     "EST 5864 - CORPORATIVO ENERVISION S A P I DE CV",
     "EST 55065 - GRUPO CASTILLO FELIX, S.A. DE C.V.",
+    "EST 10460 - BELLAS ARTES GASOLINERA SA DE CV",
+    "EST 50024 - BELLAS ARTES GASOLINERA, SA DE<br>CV",
 ];
 const rfc = [
     "CEN171221EE0",
     "CEN171221EE0",
     "",
-    ""
+    "",
+    "BAG040224U15",
+    "",
 ];
 const direccion_1 = [
     "CARR.A LA COLORADA KM. 3.5 ESQ. PLANETARIO",
     "PASEO RIO SONORA SUR 458",
     "BLVD. PASEO LAS PALMAS 1",
     "CARR. PEÑASCO-SONOYTA Y CALLE LISBOA 450",
+    "MICHOACAN 2001-SUR",
+    "CALLE RIO BALSAS Y CALLE CALIFORNIA 702",
 ]
 const direccion_2 = [
     "S/N, HERMOSILLO, SONORA",
     "MONTE CARLO, HERMOSILLO, SON. CP 83288",
     "LAS LOMAS, HERMOSILLO, SON CP 83296",
     "BRISAS DEL GOLFO, PUERTO PEÑASCO, SON.  CP",
+    "SOCHILOA, OBREGON, SON. CP 85150",
+    "COL. DEL VALLE, CD. OBREGON, SON. CP 85120",
 ];
 const fecha_original = [
     //mm/dd/yy
@@ -88,12 +98,16 @@ const fecha_original = [
     "08/13/21",
     "10/03/21",
     "10/17/21",
+    "01/19/22",
+    "01/19/22",
 ];
 const num_original_ventas = [
     861464,
     588970,
     1507637,
     337360,
+    1311222,
+    452294,
 ];
 const mensaje = [
     `Estimado Cliente: Le recordamos
@@ -152,7 +166,33 @@ const mensaje = [
     facturacion<br>
     www.buzonfacturas.com<br>
     Quejas y sugerencias:<br>
-    atencionaclientes@profuels.mx`
+    atencionaclientes@profuels.mx`,
+
+    `Estimado cliente le informamos
+    que cuenta con 2 dias despues de
+    realizar su compra para poder
+    emitir su factura o descarga de
+    archivos xml o pdf en
+    www.buzonfacturas.com.<br>
+    Temas de Facturacion:
+    atencionclientes@buzonfacturas.
+    com<br>
+    Quejas y sugerencias:
+    atencionaclientes@profuels.mx
+    Tel.664 423 27 26`,
+
+    `Estimado Cliente le informamos
+    que cuenta con 2 dias despues de
+    realizar su compra para poder
+    emitir su factura o descarga de
+    archivos xml o pdf en 
+    www.buzonfacturas.com.<br>
+    Temas de Facturacion:
+    atencionaclientes@buzonfacturas.<br>
+    com<br>
+    Quejas y sugerencias:
+    atencionaclientes@profuels.mx
+    Tel.664 423 27 26`,
 ];
 
 
