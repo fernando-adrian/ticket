@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket-Go</title>
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/arco-styles.css">
+    <link rel="stylesheet" href="/public/css/master.css">
+    <link rel="stylesheet" href="/public/css/arco-styles.css">
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
@@ -22,7 +22,7 @@
         </div>
         <!-- <form action="ticket-arco-print.html"> -->
             <form onsubmit="return imprimir(event)">
-                <img src="img/button-gallery/arco.png" class="form-ticket-icon" alt="Avatar Image">
+                <img src="/public/img/button-gallery/arco.png" class="form-ticket-icon" alt="Avatar Image">
             
                     <label for="estaciones">ESTACIONES</label>
                     <select name="estaciones" id="estaciones">
@@ -64,7 +64,7 @@
         <!-- tamaño de importe de 87 a -->
         <div class="ticket" style="width: 87%;">
             <img
-                src="img/tickets/arco/arco.png"
+                src="/public/img/tickets/arco/arco.png"
                 alt="Logotipo"
                 class="centrar-img"
                 height="43px">
@@ -186,12 +186,11 @@
                 </tr>
             </table>
             <!-- chicanada para el margen -->
-            <img class="separador" src="img/tickets/arco/separador_blanco_1px.png" alt="">
+            <img class="separador" src="/public/img/tickets/arco/separador_blanco_1px.png" alt="">
         </div>
     </div>
-    <script src="js/ticket-form.js"></script>
-    <script src="js/numeroALetras.js"></script>
-    <!-- <script src="js/qrcode.js"></script> -->
-    <script src="js/qrious.js"></script>
+    <script src="/public/js/ticket-form.js"></script>
+    <script src="/public/js/numeroALetras.js"></script>
+    <script src="/public/js/qrious.js"></script>
 </body>
 </html>
