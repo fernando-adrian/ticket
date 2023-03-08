@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket-Go</title>
+    <link rel="stylesheet" href="/public/css/master.css">
+    <link rel="stylesheet" href="/public/css/arco-styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    
+</head>
+<body class="body">
+    <div id="form-box" class="login-box oculto-impresion">
+        <div>
+            <div id="logout" class="menu"><h2>Log Out</h2></div>
+        </div>
+        <div>
+            <div id="back" class="menu menu-right" onclick="history.back()"><h2>Atrás</h2></div>
+        </div>
+        <!-- <form action="ticket-arco-print.html"> -->
+            <form onsubmit="return imprimir(event)">
+                <img src="/public/img/button-gallery/capufe.png" class="form-ticket-icon" alt="Avatar Image">
+            
+                    <label for="fecha">FECHA</label>
+                    <input type="date" name="fecha" id="fecha">
+            
+                    <label for="hora">HORA</label>
+                    <input type="time" name="hora" id="hora" step="1">
+                
+                    <label for="importe">IMPORTE</label>
+                    <input type="number" name="importe" id="importe" value="0">
+                    
+                    <input type="submit" (click)="imprimir()" value="IMPRIMIR">
+                    
+
+        </form>
+    </div>
+
+
+    <!-- template del ticket a imprimir -->
+
+
+    <div class="oculto-browser" style="overflow: hidden;">
+        <!-- tamaño de importe de 87 a -->
+        <div class="ticket plaza-de-cobro-font" style="width: 100%;">
+            <table id="table_titulo" class="borderless" style="padding-top: 12px;padding-left: 6px;" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td id="ticket_caseta" style="text-align: center;" colspan="2">PZA. COBRO No. 150 ESPERANZA</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;"></td>
+                </tr>
+                <tr>
+                    <td id="ticket-fecha-hora" colspan="2">02/03/2023  16:50:51</td>
+                </tr>
+                <tr>
+                    <td id="ticket-folio" colspan="2">FOLIO: 0000433321 &nbsp;&nbsp; CARRIL 5 A</td>
+                </tr>
+                <tr>
+                    <td>CLASE T6C</td>
+                    <td id="ticket-importe">$ 222.00</td>
+                </tr>
+                <tr>
+                    <td id="ticket-facturacion" colspan="2">FACTURACION: UMHP BBPM K727 10MA HX</td>
+                </tr>
+                <tr id="spacer" style="height: 60px;">
+                    <td></td>
+                </tr>
+            </table>
+
+            <td id="qr" class="align-top borderless">
+                <br>
+                <img class="qr" id="qrcode" src="" alt="">
+            </td>
+        </div>
+    </div>
+    <script src="/public/js/plaza-de-cobro-form.js"></script>
+    <script src="/public/dependencies/numeroALetras/numeroALetras.js"></script>
+    <script src="/public/dependencies/qrious/qrious.js"></script>
+</body>
+</html>
