@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket-Go</title>
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/arco-styles.css">
+    <link rel="stylesheet" href="/public/css/master.css">
+    <link rel="stylesheet" href="/public/css/arco-styles.css">
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
@@ -22,7 +22,7 @@
         </div>
         <!-- <form action="ticket-arco-print.html"> -->
             <form onsubmit="return imprimir(event)">
-                <img src="img/button-gallery/lico_logo.jpg" class="form-ticket-icon" alt="Avatar Image">
+                <img src="/public/img/button-gallery/lico_logo.jpg" class="form-ticket-icon" alt="Avatar Image">
             
                     <label for="caseta">CASETA</label>
                     <select name="casetas" id="casetas">
@@ -124,7 +124,7 @@
             </table> -->
             <!-- cellpadding y cellspacing agregados -->
             <table id="img_barcode" class="borderless layout lucida-console table-debug" cellspacing="0" cellpadding="0">
-                <img class="barcode" src="img/casetas/barcode.png" alt="">
+                <img class="barcode" src="/public/img/casetas/barcode.png" alt="">
             </table>
             <table class="numero-barcode barcode-font">
                 <td>052133306193774990000006000005</td>
@@ -133,9 +133,8 @@
             <!-- <img class="separador-caseta" src="img/tickets/arco/separador_blanco_1px.png" alt=""> -->
         </div>
     </div>
-    <script src="js/caseta-ticket-form.js"></script>
-    <script src="js/numeroALetras.js"></script>
-    <!-- <script src="js/qrcode.js"></script> -->
-    <script src="js/qrious.js"></script>
+    <script src="/public/js/caseta-ticket-form.js"></script>
+    <script src="/public/js/numeroALetras.js"></script>
+    <script src="/public/js/qrious.js"></script>
 </body>
 </html>
