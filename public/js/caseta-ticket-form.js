@@ -14,17 +14,17 @@ firebase.auth().onAuthStateChanged(function(user) {
   });
 
   document.getElementById('logout').addEventListener('click',cerrar_sesion);
-  document.getElementById('back').addEventListener('click',back);
+//   document.getElementById('back').addEventListener('click',back);
 
 function cerrar_sesion(){
     console.log('logout gallery');
     firebase.auth().signOut();
 }
 
-function back(){
-    console.log('atras');
-    window.location.href = 'ticket-gallery.html';
-}
+// function back(){
+//     console.log('atras');
+//     window.location.href = '/public/ticket-gallery.html';
+// }
 
 function initFirebase(){
     //import firebase from "firebase/app"

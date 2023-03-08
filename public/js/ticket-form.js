@@ -14,17 +14,17 @@ firebase.auth().onAuthStateChanged(function(user) {
   });
 
   document.getElementById('logout').addEventListener('click',cerrar_sesion);
-  document.getElementById('back').addEventListener('click',back);
+//   document.getElementById('back').addEventListener('click',back);
 
 function cerrar_sesion(){
     console.log('logout gallery');
     firebase.auth().signOut();
 }
 
-function back(){
-    console.log('atras');
-    window.location.href = 'ticket-gallery.html';
-}
+// function back(){
+//     console.log('atras');
+//     window.location.href = 'ticket-gallery.html';
+// }
 
 function initFirebase(){
     //import firebase from "firebase/app"
@@ -53,6 +53,7 @@ input_precio.addEventListener('input', put_total);
 select_estaciones.addEventListener('input', put_rfc);
 
 const num_estacion = [
+    "06787",
     "03719",
     "09515",
     "05864",
@@ -61,6 +62,7 @@ const num_estacion = [
     "50024",
 ];
 const estaciones = [
+    "EST 6787 - SERVICIO GF44",
     "EST 3719 - CORPORATIVO ENERVISION SAPI DE CV",
     "EST 9515 - CORPORATIVO ENERVISION SAPI DE CV",
     "EST 5864 - CORPORATIVO ENERVISION S A P I DE CV",
@@ -69,6 +71,7 @@ const estaciones = [
     "EST 50024 - BELLAS ARTES GASOLINERA, SA DE<br>CV",
 ];
 const rfc = [
+    "SGCO201086P5",
     "CEN171221EE0",
     "CEN171221EE0",
     "",
@@ -77,6 +80,7 @@ const rfc = [
     "",
 ];
 const direccion_1 = [
+    "SUFRAGIO EFECTIVO 940",
     "CARR.A LA COLORADA KM. 3.5 ESQ. PLANETARIO",
     "PASEO RIO SONORA SUR 458",
     "BLVD. PASEO LAS PALMAS 1",
@@ -85,6 +89,7 @@ const direccion_1 = [
     "CALLE RIO BALSAS Y CALLE CALIFORNIA 702",
 ]
 const direccion_2 = [
+    "REAL DEL SOL, CD. OBREGON, SON. CP 85019",
     "S/N, HERMOSILLO, SONORA",
     "MONTE CARLO, HERMOSILLO, SON. CP 83288",
     "LAS LOMAS, HERMOSILLO, SON CP 83296",
@@ -94,6 +99,7 @@ const direccion_2 = [
 ];
 const fecha_original = [
     //mm/dd/yy
+    "02/03/23",
     "07/18/21",
     "08/13/21",
     "10/03/21",
@@ -102,6 +108,7 @@ const fecha_original = [
     "01/19/22",
 ];
 const num_original_ventas = [
+    751819,
     861464,
     588970,
     1507637,
@@ -110,6 +117,21 @@ const num_original_ventas = [
     452294,
 ];
 const mensaje = [
+    `Estimado Cliente: Le recordamos
+    que podrá emitir el CFDI durante
+    los 7 días siguientes al que se
+    haya realizado la compra. De
+    acuerdo con las disposiciones
+    fiscales vigentes. Si el CFDI se
+    solicita en un periodo distinto
+    éste no podra ser emitido. Para
+    mayor información puede
+    comunicarse al 644 414 4402 o
+    <span class="justify-left-inblock">al correo electrónico:</span>
+    cobranzagf44@hotmail.com<br><br>
+    Facturacion en linea<br>
+    https://www.buzonfacturas.com`,
+
     `Estimado Cliente: Le recordamos
     que podrá emitir el CFDI durante
     los 7 días siguientes al que se
