@@ -12,29 +12,104 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
     
 </head>
-<body class="body" onload="init();">
-    <div id="form-box" class="login-box oculto-impresion">
+<body class="body" >
+    <div id="form-box" class="login-box large-box oculto-impresion">
         <div>
             <div id="logout" class="menu"><h2>Log Out</h2></div>
         </div>
         <div>
-            <div id="back" class="menu menu-right" onclick="history.back()"><h2>Atrás</h2></div>
+            <div id="back" class="menu menu-right menu-right-large" onclick="history.back()"><h2>Atrás</h2></div>
         </div>
-        <!-- <form action="ticket-arco-print.html"> -->
             <form onsubmit="return imprimir(event)">
                 <img src="/public/img/button-gallery/oxxo.png" class="form-ticket-icon" alt="Avatar Image">
             
-                    <label for="caseta">CASETA</label>
-                    <select name="casetas" id="casetas">
-                        <!-- <option value="0">EST 3719 - CORPORATIVO ENERVISION SAPI DE CV</option> -->
-                    </select>
-            
-                    <label for="fecha">FECHA</label>
-                    <input type="date" name="fecha" id="fecha">
-            
-                    <label for="hora">HORA</label>
-                    <input type="time" name="hora" id="hora" step="1">
-                
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="width: 50%;">
+                                    <label for="fecha">FECHA</label>
+                                    <input style="display: block;" type="date" name="fecha" id="fecha">
+                                </td>
+                                <td style="width: 30%;">
+                                    <label for="hora">HORA</label>
+                                    <input style="display: block;" type="time" name="hora" id="hora" step="1">
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+
+                    
+                    <table>
+                        <thead style="width: 100%;">
+                            <tr>
+                                <td style="width: 45%;"><label for="product">PRODUCTO</label></td>
+                                <td style="width: 10%;"><label for="product">CANT</label></td>
+                                <td style="width: 30%;"><label for="product">PRECIO</label></td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table>
+                        <tr>
+                            <td style="width: 50%;">
+                                <select style="width: 100%;">
+                                    <option value="none"></option>
+                                    <option value="soda">COCA COLA 600ml</option>
+                                    <option value="chips">DORITOS 65Gr</option>
+                                    <option value="cigar">CIGARROS</option>
+                                </select>
+                            </td>
+                            <td style="width: 15%; padding-top: 10px;">
+                                <input type="number" name="cant" id="cant" style="width: 100%; height: 100%;" step="1" placeholder="cant.">
+                            </td>
+                            <td style="width: 30; padding-left: 5px; padding-top: 10px;">
+                                <input type="number" name="hora" id="hora" style="width: 100%; height: 100%;" step="1" placeholder="$">
+                            </td>
+                        </tr>
+                    </table>
+
+                    
+                    <table>
+                        <tr>
+                            <td style="width: 50%;">
+                                <select style="width: 100%;">
+                                    <option value="none"></option>
+                                    <option value="soda">COCA COLA 600ml</option>
+                                    <option value="chips">DORITOS 65Gr</option>
+                                    <option value="cigar">CIGARROS</option>
+                                </select>
+                            </td>
+                            <td style="width: 15%; padding-top: 10px;">
+                                <input type="number" name="cant" id="cant" style="width: 100%; height: 100%;" step="1" placeholder="cant.">
+                            </td>
+                            <td style="width: 30; padding-left: 5px; padding-top: 10px;">
+                                <input type="number" name="hora" id="hora" style="width: 100%; height: 100%;" step="1" placeholder="$">
+                            </td>
+                        </tr>
+                    </table>
+
+                    
+                    <table>
+                        <tr>
+                            <td style="width: 50%;">
+                                <select style="width: 100%;">
+                                    <option value="none"></option>
+                                    <option value="soda">COCA COLA 600ml</option>
+                                    <option value="chips">DORITOS 65Gr</option>
+                                    <option value="cigar">CIGARROS</option>
+                                </select>
+                            </td>
+                            <td style="width: 15%; padding-top: 10px;">
+                                <input type="number" name="cant" id="cant" style="width: 100%; height: 100%;" step="1" placeholder="cant.">
+                            </td>
+                            <td style="width: 30; padding-left: 5px; padding-top: 10px;">
+                                <input type="number" name="hora" id="hora" style="width: 100%; height: 100%;" step="1" placeholder="$">
+                            </td>
+                        </tr>
+                    </table>
+
+                    
+                    
                     <label for="efectivo">EFECTIVO</label>
                     <input type="number" name="efectivo" id="efectivo" value="0">
 
@@ -42,7 +117,7 @@
                     <input type="number" name="iva" id="iva" value="0" readonly>
 
                     <label for="total">TOTAL</label>
-                    <input type="number" name="total" id="total" value="0">
+                    <input type="number" name="total" id="total" value="0" readonly>
                     
                     <input type="submit" (click)="imprimir()" value="IMPRIMIR">
                     
@@ -133,7 +208,7 @@
             <!-- <img class="separador-caseta" src="img/tickets/arco/separador_blanco_1px.png" alt=""> -->
         </div>
     </div>
-    <script src="/public/js/caseta-ticket-form.js"></script>
+    <script src="/public/js/oxxo-ticket-form.js"></script>
     <script src="/public/dependencies/numeroALetras/numeroALetras.js"></script>
     <script src="/public/dependencies/qrious/qrious.js"></script>
 </body>
