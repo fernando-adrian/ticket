@@ -26,6 +26,10 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
+.large-box{
+    width: 480px;
+}
+
 .login-box .avatar {
     width: 100px;
     height: 100px;
@@ -112,6 +116,7 @@
 .login-box select{
     display: block;
     margin-bottom: 30px;
+    font-size: 16px;
 }
 
 .menu h2 {
@@ -140,6 +145,10 @@
     left: 240px;
     right: 0px;
     top: -45px;
+}
+
+.menu-right-large{
+    left: 360px;
 }
 
 .ticket-gallery {
@@ -271,6 +280,10 @@
     top: 0%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.small-label{
+    font-size: 12px;
 }
 
 .text-align-center {
