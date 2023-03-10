@@ -26,8 +26,10 @@
     transform: scaleX(0.9);
 }
 .oxxo-font{
+    /* font-family: 'VCR'; */
     font-family: 'Ticketing';
-    font-size: 40px;
+    /* font-family: 'SmoothPet'; */
+    font-size: 9px;
 }
 .barcode-font{
     font-family: 'Lucida Console';

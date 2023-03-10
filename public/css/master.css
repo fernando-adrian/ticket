@@ -5,6 +5,12 @@
 }
 
 @font-face {
+    font-family: "VCR";
+    src: url("../fonts/VCR_OSD_MONO.ttf");
+    src: url("../fonts/VCR_OSD_MONO.ttf") format("truetype");
+}
+
+@font-face {
     font-family: "Ticketing";
     src: url("../fonts/Ticketing.ttf");
     src: url("../fonts/Ticketing.ttf") format("truetype");
@@ -312,4 +318,16 @@
 
 .not-display{
     display: none;
+}
+
+.align-center{
+    text-align: center;
+}
+
+.align-left{
+    text-align: left;
+}
+
+.align-right{
+    text-align: right;
 }
