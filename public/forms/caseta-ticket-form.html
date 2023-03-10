@@ -15,7 +15,7 @@
 <body class="body" onload="init();">
     <div id="form-box" class="login-box oculto-impresion">
         <div>
-            <div id="logout" class="menu"><h2>Log Out</h2></div>
+            <div id="logout" class="menu" onclick="cerrar_sesion()"><h2>Log Out</h2></div>
         </div>
         <div>
             <div id="back" class="menu menu-right" onclick="history.back()"><h2>Atrás</h2></div>
@@ -132,6 +132,7 @@
             <!-- <img class="separador-caseta" src="img/tickets/arco/separador_blanco_1px.png" alt=""> -->
         </div>
     </div>
+    <script src="/public/js/init-firebase.js"></script>
     <script src="/public/js/caseta-ticket-form.js"></script>
     <script src="/public/dependencies/numeroALetras/numeroALetras.js"></script>
     <script src="/public/dependencies/qrious/qrious.js"></script>

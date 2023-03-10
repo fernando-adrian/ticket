@@ -15,7 +15,7 @@
 <body class="body" >
     <div id="form-box" class="login-box large-box oculto-impresion">
         <div>
-            <div id="logout" class="menu"><h2>Log Out</h2></div>
+            <div id="logout" class="menu" onclick="cerrar_sesion()"><h2>Log Out</h2></div>
         </div>
         <div>
             <div id="back" class="menu menu-right menu-right-large" onclick="history.back()"><h2>Atrás</h2></div>
@@ -192,11 +192,6 @@
                     <td colspan="2">BUEN VIAJE</td>
                 </tr>
             </table>
-            <!-- <table class="borderless courier-new table-debug" style="width: 90%;">
-                <tr class="text-align-center">
-                    <td>BUEN VIAJE</td>
-                </tr>
-            </table> -->
             <!-- cellpadding y cellspacing agregados -->
             <table id="img_barcode" class="borderless layout lucida-console table-debug" cellspacing="0" cellpadding="0">
                 <img class="barcode" src="/public/img/casetas/barcode.png" alt="">
@@ -208,6 +203,7 @@
             <!-- <img class="separador-caseta" src="img/tickets/arco/separador_blanco_1px.png" alt=""> -->
         </div>
     </div>
+    <script src="/public/js/init-firebase.js"></script>
     <script src="/public/js/oxxo-ticket-form.js"></script>
     <script src="/public/dependencies/numeroALetras/numeroALetras.js"></script>
     <script src="/public/dependencies/qrious/qrious.js"></script>
