@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "SmoothPet";
+    src: url("../fonts/smoothpet.ttf");
+    src: url("../fonts/smoothpet.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Ticketing";
+    src: url("../fonts/Ticketing.ttf");
+    src: url("../fonts/Ticketing.ttf") format("truetype");
+}
+
 .body {
     margin: 0;
     padding: 0;

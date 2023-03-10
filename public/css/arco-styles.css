@@ -25,6 +25,10 @@
     font-size: 11px;
     transform: scaleX(0.9);
 }
+.oxxo-font{
+    font-family: 'Ticketing';
+    font-size: 40px;
+}
 .barcode-font{
     font-family: 'Lucida Console';
     font-size: 9px;
