@@ -25,11 +25,19 @@
     font-size: 11px;
     transform: scaleX(0.9);
 }
-.oxxo-font{
+.oxxo-font-small{
     /* font-family: 'VCR'; */
     font-family: 'Ticketing';
     /* font-family: 'SmoothPet'; */
-    font-size: 9px;
+    font-size: 16px;
+    /* transform: scaleX(0.9); */
+}
+.oxxo-font-large{
+    font-family: 'VCR';
+    /* font-family: 'Ticketing'; */
+    /* font-family: 'SmoothPet'; */
+    font-weight: bold;
+    font-size: 18px;
 }
 .barcode-font{
     font-family: 'Lucida Console';
