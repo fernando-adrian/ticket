@@ -16,6 +16,12 @@
     src: url("../fonts/Ticketing.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "EnvyCodeR";
+    src: url("../fonts/Envy_Code_R.ttf");
+    src: url("../fonts/Envy_Code_R.ttf") format("truetype");
+}
+
 .body {
     margin: 0;
     padding: 0;
