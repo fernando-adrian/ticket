@@ -30,7 +30,10 @@
     font-family: 'Ticketing';
     /* font-family: 'SmoothPet'; */
     font-size: 16px;
-    /* transform: scaleX(0.9); */
+    line-height: 80%;
+    letter-spacing: 1px;
+    transform: scaleY(1.5);
+    transform: translateY(0px);
 }
 .oxxo-font-large{
     font-family: 'VCR';
@@ -38,6 +41,13 @@
     /* font-family: 'SmoothPet'; */
     font-weight: bold;
     font-size: 18px;
+    line-height: 120%;
+}
+.oxxo-font-igual{
+    font-family: 'Lucida Console';
+    /* font-weight: bold; */
+    font-size: 12px;
+    transform: scaleY(1.8);
 }
 .barcode-font{
     font-family: 'Lucida Console';
