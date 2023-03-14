@@ -30,9 +30,9 @@
                                     <label for="fecha">FECHA</label>
                                     <input style="display: block;" type="date" name="fecha" id="fecha">
                                 </td>
-                                <td style="width: 30%;">
+                                <td style="width: 20%;">
                                     <label for="hora">HORA</label>
-                                    <input style="display: block;" type="time" name="hora" id="hora" step="1">
+                                    <input style="display: block;" type="time" name="hora" id="hora">
                                 </td>
                             </tr>
                         </tbody>
@@ -52,18 +52,18 @@
                     <table>
                         <tr>
                             <td style="width: 50%;">
-                                <select style="width: 100%;">
-                                    <option value="none"></option>
-                                    <option value="soda">COCA COLA 600ml</option>
-                                    <option value="chips">DORITOS 65Gr</option>
-                                    <option value="cigar">CIGARROS</option>
+                                <select id="product1" name="select_product" style="width: 100%;">
+                                    <option value="NULL"></option>
+                                    <option value="COCA">COCA COLA 600ml</option>
+                                    <option value="DORITOS">DORITOS 65Gr</option>
+                                    <option value="MARUCHAN">MARUCHAN</option>
                                 </select>
                             </td>
                             <td style="width: 15%; padding-top: 10px;">
-                                <input type="number" name="cant" id="cant" style="width: 100%; height: 100%;" step="1" placeholder="cant.">
+                                <input type="number" name="cant" id="cant" style="width: 100%; height: 100%;" step="1" placeholder="1" readonly>
                             </td>
                             <td style="width: 30; padding-left: 5px; padding-top: 10px;">
-                                <input type="number" name="hora" id="hora" style="width: 100%; height: 100%;" step="1" placeholder="$">
+                                <input type="number" id="price1" style="width: 100%; height: 100%;" step="0.01" placeholder="$">
                             </td>
                         </tr>
                     </table>
@@ -72,7 +72,7 @@
                     <table>
                         <tr>
                             <td style="width: 50%;">
-                                <select style="width: 100%;">
+                                <select id="product2" name="select_product"  style="width: 100%;">
                                     <option value="none"></option>
                                     <option value="soda">COCA COLA 600ml</option>
                                     <option value="chips">DORITOS 65Gr</option>
@@ -80,10 +80,10 @@
                                 </select>
                             </td>
                             <td style="width: 15%; padding-top: 10px;">
-                                <input type="number" name="cant" id="cant" style="width: 100%; height: 100%;" step="1" placeholder="cant.">
+                                <input type="number" name="cant" id="cant" style="width: 100%; height: 100%;" step="1" placeholder="1" readonly>
                             </td>
                             <td style="width: 30; padding-left: 5px; padding-top: 10px;">
-                                <input type="number" name="hora" id="hora" style="width: 100%; height: 100%;" step="1" placeholder="$">
+                                <input type="number" id="price2" style="width: 100%; height: 100%;" step="0.01" placeholder="$">
                             </td>
                         </tr>
                     </table>
@@ -92,7 +92,7 @@
                     <table>
                         <tr>
                             <td style="width: 50%;">
-                                <select style="width: 100%;">
+                                <select id="product3" name="select_product" style="width: 100%;">
                                     <option value="none"></option>
                                     <option value="soda">COCA COLA 600ml</option>
                                     <option value="chips">DORITOS 65Gr</option>
@@ -100,10 +100,10 @@
                                 </select>
                             </td>
                             <td style="width: 15%; padding-top: 10px;">
-                                <input type="number" name="cant" id="cant" style="width: 100%; height: 100%;" step="1" placeholder="cant.">
+                                <input type="number" name="cant" id="cant" style="width: 100%; height: 100%;" step="1" placeholder="1" readonly>
                             </td>
                             <td style="width: 30; padding-left: 5px; padding-top: 10px;">
-                                <input type="number" name="hora" id="hora" style="width: 100%; height: 100%;" step="1" placeholder="$">
+                                <input type="number" id="price3" style="width: 100%; height: 100%;" step="0.01" placeholder="$">
                             </td>
                         </tr>
                     </table>
@@ -156,23 +156,28 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="oxxo-column1-w">PAMISI0403220</td>
-                    <td colspan="1" class="oxxo-column2-w">10/02/2023</td>
-                    <td colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">13:38</td>
+                    <td id="oxxo-fecha" colspan="1" class="oxxo-column2-w">10/02/2023</td>
+                    <td id="oxxo-hora" colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">13:38</td>
                 </tr>
-                <tr>
-                    <td colspan="2" class="oxxo-column1-w">SALCHICHA LONGM 1LB</td>
+                <tr id="listProduct1">
+                    <td id="listProductName1" colspan="2" class="oxxo-column1-w">SALCHICHA LONGM 1LB</td>
                     <td colspan="1" class="oxxo-column2-w">&nbsp;&nbsp;1</td>
-                    <td colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">18.00</td>
+                    <td id="listProductPrice1" colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">18.00</td>
                 </tr>
-                <tr>
-                    <td colspan="2" class="oxxo-column1-w">PAN HOT DOG MED 340G</td>
+                <tr id="listProduct2">
+                    <td id="listProductName2" colspan="2" class="oxxo-column1-w">PAN HOT DOG MED 340G</td>
                     <td colspan="1" class="oxxo-column2-w">&nbsp;&nbsp;1</td>
-                    <td colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">45.50</td>
+                    <td id="listProductPrice2" colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">45.50</td>
+                </tr>
+                <tr id="listProduct3">
+                    <td id="listProductName3" colspan="2" class="oxxo-column1-w">PAN HOT DOG MED 340G</td>
+                    <td colspan="1" class="oxxo-column2-w">&nbsp;&nbsp;1</td>
+                    <td id="listProductPrice3" colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">45.50</td>
                 </tr>
                 <tr>
                     <td colspan="2" class="oxxo-column1-w">Fol_Vta:3421535</td>
                     <td colspan="1" class="oxxo-column2-w align-right">Total: $&nbsp;</td>
-                    <td colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">181.50</td>
+                    <td id="listProductTotal" colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">181.50</td>
                 </tr>
                 <tr>
                     <td colspan="1" style="width: 30%;" class="">ID=10GUD50QRQ1</td>
