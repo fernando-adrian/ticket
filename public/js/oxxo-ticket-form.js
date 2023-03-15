@@ -1,10 +1,10 @@
 const productMap = new Map();
 
-productMap.set("NULL","VACIO");
-productMap.set("COCA","COCA-COLA 600ML");
-productMap.set("MARUCHAN","MARUCHAN 64G CAMARON");
-productMap.set("DORITOS","DORITOS NACHOS 245G");
-productMap.set("SNICKERS","SNICKERS 52.7GRS");
+productMap.set("NULL",{ name: "VACIO", price: 0});
+productMap.set("COCA",{ name: "COCA-COLA 600ML", price: 18.00});
+productMap.set("MARUCHAN",{ name: "MARUCHAN 64G CAMARON", price: 19.00});
+productMap.set("DORITOS",{ name: "DORITOS NACHOS 245G", price: 45.00});
+productMap.set("SNICKERS",{ name: "SNICKERS 52.7GRS", price: 24.00});
 
 
 init();
@@ -15,14 +15,16 @@ function init(){
     
     select_product.forEach((select) => {
         select.innerHTML = "";
-        productMap.forEach((value, key) => {
+        productMap.forEach((productValue, key) => {
             var option = document.createElement("option");
             option.value = key;
-            option.text = value;
+            option.text = productValue.name;
             select.append(option);
         });
 
     });
+
+    addProductListeners();
 }
 
 
@@ -36,17 +38,19 @@ function validaciones(){
         message_alert = 'Por favor selecciona una hora';
     else if (document.getElementById('product1').value == "NULL")
         message_alert = 'Por favor indica al menos un producto';
-    else if (document.getElementById('precio1').value == "")
+    else if (document.getElementById('price1').value == "")
         message_alert = 'Por favor indica el precio del primer producto';
     else if (   document.getElementById('product2').value != "NULL" &&
-                document.getElementById('precio2').value == "")
+                document.getElementById('price2').value == "")
         message_alert = 'Por favor indica el precio del segundo producto';
     else if (   document.getElementById('product3').value != "NULL" &&
-                document.getElementById('precio3').value == "")
+                document.getElementById('price3').value == "")
         message_alert = 'Por favor indica el precio del tercer producto';
     else if (document.getElementById('efectivo').value == "0")
         message_alert = 'Por favor indica el efectivo';
-
+    if(!isEnoughCash())
+        message_alert = 'El efectivo no es suficiente para realizar la compra';
+    
     if (message_alert == '')
         return true;
 
@@ -58,9 +62,12 @@ function imprimir(e){
 
     e.preventDefault();
 
+    
+
+    if (!validaciones())
+        return;
+        
     setProducts();
-    // if (!validaciones())
-    //     return;
 
     var fecha = new Date(document.getElementById('fecha').value);
     var fecha_offset = fecha.getTimezoneOffset() * 60000;
@@ -88,7 +95,7 @@ function setProducts(){
 
     if(document.getElementById('product1').value != "NULL"){
         document.getElementById('listProductName1')
-            .innerHTML = productMap.get( document.getElementById('product1').value);
+            .innerHTML = productMap.get( document.getElementById('product1').value).name;
         document.getElementById('listProductPrice1')
             .innerHTML =
                 parseFloat(document.getElementById('price1').value)
@@ -97,7 +104,7 @@ function setProducts(){
     }
     if(document.getElementById('product2').value != "NULL"){
         document.getElementById('listProductName2')
-            .innerHTML = productMap.get( document.getElementById('product2').value);
+            .innerHTML = productMap.get( document.getElementById('product2').value).name;
         document.getElementById('listProductPrice2')
             .innerHTML =
                 parseFloat(document.getElementById('price2').value)
@@ -106,7 +113,7 @@ function setProducts(){
     }
     if(document.getElementById('product3').value != "NULL"){
         document.getElementById('listProductName3')
-            .innerHTML = productMap.get( document.getElementById('product3').value);
+            .innerHTML = productMap.get( document.getElementById('product3').value).name;
         document.getElementById('listProductPrice3')
             .innerHTML =
                 parseFloat(document.getElementById('price3').value)
@@ -142,4 +149,38 @@ function removeUnsetProducts(){
         var p3 = document.getElementById('listProduct3');
         if(p3 != null) p3.remove();
     }
+}
+
+function addProductListeners(){
+
+    var p1 = document.getElementById('product1');
+    p1.addEventListener("change", (event) => {
+        document.getElementById('price1').value = 
+        productMap.get(event.srcElement.value).price;
+    });
+    var p2 = document.getElementById('product2');
+    p2.addEventListener("change", (event) => {
+        document.getElementById('price2').value = 
+        productMap.get(event.srcElement.value).price;
+    });
+    var p3 = document.getElementById('product3');
+    p3.addEventListener("change", (event) => {
+        document.getElementById('price3').value = 
+        productMap.get(event.srcElement.value).price;
+    });
+}
+
+function isEnoughCash(){
+    var total = 0;
+    if(document.getElementById('product1').value != "NULL"){
+        total += parseFloat(document.getElementById('price1').value);
+    }
+    if(document.getElementById('product2').value != "NULL"){
+        total += parseFloat(document.getElementById('price2').value);
+    }
+    if(document.getElementById('product3').value != "NULL"){
+        total += parseFloat(document.getElementById('price3').value);
+    }
+    var efectivo = parseFloat(document.getElementById('efectivo').value);
+    return efectivo >= total;
 }
