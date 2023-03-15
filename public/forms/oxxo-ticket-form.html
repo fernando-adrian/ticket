@@ -113,11 +113,11 @@
                     <label for="efectivo">EFECTIVO</label>
                     <input type="number" name="efectivo" id="efectivo" value="0">
 
-                    <label for="iva">IVA</label>
+                    <!-- <label for="iva">IVA</label>
                     <input type="number" name="iva" id="iva" value="0" readonly>
 
                     <label for="total">TOTAL</label>
-                    <input type="number" name="total" id="total" value="0" readonly>
+                    <input type="number" name="total" id="total" value="0" readonly> -->
                     
                     <input type="submit" (click)="imprimir()" value="IMPRIMIR">
                     
@@ -183,16 +183,16 @@
                     <td colspan="1" style="width: 30%;" class="">ID=10GUD50QRQ1</td>
                     <td colspan="1" style="width: 30%;" class="align-right">IVA&nbsp;</td>
                     <td colspan="1" class="oxxo-column2-w align-left">INCLUIDO: $</td>
-                    <td colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">11.24</td>
+                    <td colspan="1" class="oxxo-column3-w align-right oxxo-padding-right">0.00</td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="align-left">CUARENTA Y UNO PESOS 00/100 M.N.</td>
+                    <td id="totalConLetra" colspan="4" class="align-left">CUARENTA Y UNO PESOS 00/100 M.N.</td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="align-left">Efectivo M.N.: 100.00</td>
+                    <td id="efectivoMN" colspan="4" class="align-left">Efectivo M.N.: 100.00</td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="align-left">Pago: $ 100.00&nbsp;&nbsp;Cambio: $ 18.50</td>
+                    <td id="pagoCambio" colspan="4" class="align-left">Pago: $ 100.00&nbsp;&nbsp;Cambio: $ 18.50</td>
                 </tr>
                 <tr>
                     <td colspan="4" style="width: 80%;" class="align-center">MUCHAS GRACIAS POR SU COMPRA<td>

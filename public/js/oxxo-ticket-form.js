@@ -117,6 +117,18 @@ function setProducts(){
     document.getElementById('listProductTotal').innerHTML =
         total.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
     
+
+    var efectivo00 = parseFloat(document.getElementById('efectivo').value)
+        .toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
+    //efectivo
+    document.getElementById('totalConLetra').innerHTML = NumeroALetras(total) + " M.N.";
+    document.getElementById('efectivoMN').innerHTML =
+        "Efectivo M.N.: " + efectivo00;
+    
+    document.getElementById('pagoCambio').innerHTML =
+        "Pago: $" + efectivo00 + "&nbsp;&nbsp;" +
+        "Cambio: $ " + (efectivo00 - total)
+            .toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
 }
 
 function removeUnsetProducts(){
