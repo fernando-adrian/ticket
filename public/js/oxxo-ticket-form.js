@@ -62,8 +62,6 @@ function imprimir(e){
 
     e.preventDefault();
 
-    
-
     if (!validaciones())
         return;
         
@@ -80,6 +78,9 @@ function imprimir(e){
 
     document.getElementById('oxxo-fecha').innerHTML = date_fixed_2 + "/" + month_fixed_2 + "/" + year_fixed_4;
     document.getElementById('oxxo-hora').innerHTML = hora_fixed_2_2;
+
+    //calcular el folio de venta con ventas estimadas
+    document.getElementById('folioVta').innerHTML = "Fol_Vta:" + calculateFolio();
     
 
     setTimeout(() => {
@@ -133,7 +134,7 @@ function setProducts(){
         "Efectivo M.N.: " + efectivo00;
     
     document.getElementById('pagoCambio').innerHTML =
-        "Pago: $" + efectivo00 + "&nbsp;&nbsp;" +
+        "Pago: $ " + efectivo00 + "&nbsp;&nbsp;" +
         "Cambio: $ " + (efectivo00 - total)
             .toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
 }
@@ -183,4 +184,21 @@ function isEnoughCash(){
     }
     var efectivo = parseFloat(document.getElementById('efectivo').value);
     return efectivo >= total;
+}
+
+function calculateFolio(){
+    const folio_original = 70014;
+    const fecha_original = "03/14/23";
+    const atentidos_por_dia = 1000;
+    const factor = 100;
+    
+    var fecha = new Date(document.getElementById('fecha').value);
+    var fecha_offset = fecha.getTimezoneOffset() * 60000;
+    var fecha_correcta = new Date(fecha.getTime() + fecha_offset);
+    var diferencia_dias = (new Date(fecha_correcta) - new Date(fecha_original)) / (1000 * 3600 * 24);
+    console.log(diferencia_dias);
+    var atendidos_hipoteticos = (diferencia_dias * atentidos_por_dia);
+    var factor_aleatorio = (Math.random() * factor);
+    var ventas_calculadas = folio_original + atendidos_hipoteticos + factor_aleatorio;
+    return parseInt(ventas_calculadas);
 }
