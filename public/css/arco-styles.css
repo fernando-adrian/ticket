@@ -37,12 +37,19 @@
     /* transform: translateY(1px); */
 }
 .oxxo-font-large{
-    font-family: 'VCR';
-    /* font-family: 'Ticketing'; */
-    /* font-family: 'SmoothPet'; */
-    font-weight: bold;
-    font-size: 18px;
+    font-family: 'PhatoneRegular';
+    font-size: 10px;
+    letter-spacing: 3px;
+    transform: scaleY(0.8);
+    font-weight: 100;
+    
+
+    /* font-size: 18px; */
+    /* font-family: 'VCR'; */
+    /* font-weight: bold;
     line-height: 80%;
+    letter-spacing: 3px;
+    transform: scaleY(0.7); */
 }
 .oxxo-font-igual{
     font-family: 'Lucida Console';
@@ -72,6 +79,10 @@
 
 .oxxo-top-space{
     padding-top: 40px;
+}
+
+.line-height-55{
+    line-height: 55%;
 }
 
 .ticket {

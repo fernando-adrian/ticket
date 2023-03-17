@@ -22,6 +22,12 @@
     src: url("../fonts/Envy_Code_R.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "PhatoneRegular";
+    src: url("../fonts/PhatoneRegular.otf");
+    src: url("../fonts/PhatoneRegular.otf") format("truetype");
+}
+
 .body {
     margin: 0;
     padding: 0;
