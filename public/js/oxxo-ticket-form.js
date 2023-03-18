@@ -85,7 +85,7 @@ function imprimir(e){
 
     setTimeout(() => {
         window.print();  
-    }, 100);
+    }, 150);
 
 }
 
